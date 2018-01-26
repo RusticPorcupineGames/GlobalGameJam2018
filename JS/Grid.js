@@ -1,10 +1,8 @@
-var isoGroup, water = [];
-
+var isoGroup = [];
 
 
 var Grid = function(game){
   isoGroup = game.add.group();
-
 
   this.grid = [
     ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
@@ -12,16 +10,16 @@ var Grid = function(game){
     ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
     ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
     ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
+    ['g', 'g', 'g', 'g', 'g', 'g', 'd', 'g', 'g', 'g', 'g', 'g', 'd', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
     ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
     ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
     ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
     ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
     ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
     ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
+    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'd', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
     ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
+    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'd', 'g', 'g'],
     ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']];
 
   // Add tiles to map
@@ -44,49 +42,15 @@ var Grid = function(game){
   // click event
   game.input.tapRate = 500;
   game.input.onTap.add(function () {
-    var nothingClicked = true;
-
-
-
-      game.iso.unproject(game.input.activePointer.position, cursorPos); // bug fix to ensure mobile devices always update cursor position
-
-      isoGroup.forEach(function (tile) {
-        var inBounds = tile.isoBounds.containsXY(cursorPos.x, cursorPos.y);
-        if(inBounds){
-          nothingClicked = false;
-
-
-
-
-
-        }
-      });
-      if (nothingClicked) {
-
-      }
-
+    isoGroup.forEach(function (tile) {
+      if(tile.isoBounds.containsXY(cursorPos.x, cursorPos.y)){}
+    });
   }, this);
 
   this.update = function(){
-    // Unselected/ not-neighbour tiles allow scroll over animations.
     isoGroup.forEach(function (tile) {
-
-        var inBounds = tile.isoBounds.containsXY(cursorPos.x, cursorPos.y);
-
-
-
-
-
-
-          game.add.tween(tile).to({ isoZ: 0 }, 200, Phaser.Easing.Quadratic.InOut, true);
-
-
-    });
-
-    // Wobble water tiles
-    water.forEach(function (w) {
-        w.isoZ = (-2 * Math.sin((game.time.now + (w.isoX * 7)) * 0.004)) + (-1 * Math.sin((game.time.now + (w.isoY * 8)) * 0.005));
-        w.alpha = Phaser.Math.clamp(1 + (w.isoZ * 0.05), 0.2, 1);
+        //var inBounds = tile.isoBounds.containsXY(cursorPos.x, cursorPos.y);
+        //game.add.tween(tile).to({ isoZ: 0 }, 200, Phaser.Easing.Quadratic.InOut, true);
     });
   }
 }
