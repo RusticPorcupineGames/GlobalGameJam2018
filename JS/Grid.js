@@ -16,7 +16,7 @@ var Grid = function(game){
     ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c']];
 
   // Add tiles to map
-  var size = 45;
+  var size = 42;
   var i=0, j, tile;
   for (var xx = 0; xx < size*7; xx += size) {
     j=0;
