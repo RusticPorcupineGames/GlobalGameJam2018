@@ -5,25 +5,18 @@ var Grid = function(game){
   isoGroup = game.add.group();
 
   this.grid = [
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'd', 'g', 'g', 'g', 'g', 'g', 'd', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'd', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'd', 'g', 'g'],
-    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']];
+    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
+    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
+    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
+    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
+    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
+    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
+    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
+    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
+    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c']];
 
   // Add tiles to map
-  var size = 76;
+  var size = 45;
   var i=0, j, tile;
   for (var xx = 0; xx < size*7; xx += size) {
     j=0;
@@ -32,8 +25,6 @@ var Grid = function(game){
       // The last parameter is the group you want to add it to (just like game.add.sprite)
       tile = game.add.isoSprite(xx, yy, 0, this.grid[i][j], 1, isoGroup);
       tile.isoGroupIndex = (7*i)+j;
-
-
       j+=1;
     }
     i+=1;
