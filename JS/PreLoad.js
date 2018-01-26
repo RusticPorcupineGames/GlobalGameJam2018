@@ -21,7 +21,7 @@ var PreLoad = {
     game.load.image('tutorial', 'Images/tutorial.png');
 
 		// Images
-    game.load.image('w', 'Images/tiles/water.png');
+
     game.load.image('g', 'Images/tiles/grass.png');
     game.load.image('p', 'Images/tiles/path.png');
     game.load.image('d', 'Images/tiles/dirt.png');
@@ -37,29 +37,14 @@ var PreLoad = {
     game.load.image('gc3', 'Images/tiles/gcgrass3.png');
 
 		// Sprite sheets
-		game.load.spritesheet('imgStartButton', 'Images/startButton.png', 193, 67);
+        game.load.spritesheet('imgStartButton', 'Images/startButton.png', 193, 67);
 
-
-    // UI (Clickable boxes)
-    game.load.image('uibox', 'Images/ui/box.png');
-    game.load.image('uid', 'Images/ui/dbox.png');
-    game.load.image('uig', 'Images/ui/gbox.png');
-
-    game.load.image('uibc', 'Images/ui/bcbox.png');
-    game.load.image('uibcup', 'Images/ui/bcboxup.png');
-    game.load.image('uibh', 'Images/ui/bhbox.png');
-
-    game.load.image('uigc', 'Images/ui/gcbox.png');
-    game.load.image('uigcup', 'Images/ui/gcboxup.png');
-    game.load.image('uigh', 'Images/ui/ghbox.png');
 
     // UI (Help)
     game.load.image('uiq', 'Images/ui/question.png');
     game.load.image('uic', 'Images/ui/cross.png');
 
-		// Audio
-		// game.load.audio('sLaser', 'Audio/laser.wav');
-		// game.load.audio('sMusic', 'Audio/noSleep.mp3');
+
     },
 
     create: function () {
