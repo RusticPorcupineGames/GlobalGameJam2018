@@ -45,6 +45,11 @@ var PreLoad = {
     game.load.image('uic', 'Images/ui/cross.png');
 
 
+    //Hospital
+        game.load.image('doctor', 'images/doctor.png');
+
+
+
     },
 
     create: function () {
