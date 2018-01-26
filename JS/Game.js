@@ -43,14 +43,30 @@ Game.Boot.prototype =
           Phaser.Keyboard.RIGHT,
           Phaser.Keyboard.UP,
           Phaser.Keyboard.DOWN,
-          Phaser.Keyboard.SPACEBAR
+          Phaser.Keyboard.SPACEBAR,
+          Phaser.Keyboard.W,
+          Phaser.Keyboard.S,
+          Phaser.Keyboard.A,
+          Phaser.Keyboard.D
+
       ]);
 
-      var space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
-      space.onDown.add(function () {
-          //TODO Spread germs
-      }, this);
+      console.log(this.cursors);
+
+    //   this.cursors = game.input.keyboard.createCursorKeys();
+
+       this.wasd = {
+           w: game.input.keyboard.addKey(Phaser.Keyboard.W),
+           s: game.input.keyboard.addKey(Phaser.Keyboard.S),
+           a: game.input.keyboard.addKey(Phaser.Keyboard.A),
+           d: game.input.keyboard.addKey(Phaser.Keyboard.D),
+           space: game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
+       };
+
+
+
+   
 
 
   },
@@ -58,20 +74,20 @@ Game.Boot.prototype =
       // Move the player at this speed.
       var speed = 100;
 
-      if (this.cursors.up.isDown) {
+      if (this.cursors.up.isDown || this.wasd.w.isDown) {
           doctor.body.velocity.y = -speed;
       }
-      else if (this.cursors.down.isDown) {
+      else if (this.cursors.down.isDown || this.wasd.s.isDown) {
           doctor.body.velocity.y = speed;
       }
       else {
           doctor.body.velocity.y = 0;
       }
 
-      if (this.cursors.left.isDown) {
+      if (this.cursors.left.isDown || this.wasd.a.isDown) {
           doctor.body.velocity.x = -speed;
       }
-      else if (this.cursors.right.isDown) {
+      else if (this.cursors.right.isDown || this.wasd.d.isDown) {
           doctor.body.velocity.x = speed;
       }
       else {
