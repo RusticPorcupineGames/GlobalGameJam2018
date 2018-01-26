@@ -1,57 +1,6 @@
 var PreLoad = {
     preload : function() {
 
-		var style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
-		var loadingText = game.add.text(0, 0, "Loading", style);
-		loadingText.setTextBounds(0, 385, 1024, 100);
-
-    var barX = (this.game.width - 600) / 2;
-    var barY = this.game.height - 200;
-    this.add.sprite(barX, barY, 'preloaderBarGray');
-		this.preloadBar = this.add.sprite(barX, barY, 'preloaderBar');
-
-		//	This sets the preloadBar sprite as a loader sprite.
-		//	What that does is automatically crop the sprite from 0 to full-width
-		//	as the files below are loaded in.
-		this.load.setPreloadSprite(this.preloadBar);
-
-
-		/** GAME ASSETS **/
-		// Large BG images
-    game.load.image('backgroundimg', 'Images/backgroundimg.png');
-    game.load.image('tutorial', 'Images/tutorial.png');
-
-		// Images
-
-    game.load.image('g', 'Images/tiles/grass.png');
-    game.load.image('p', 'Images/tiles/path.png');
-    game.load.image('d', 'Images/tiles/dirt.png');
-
-    game.load.image('bh', 'Images/tiles/bhgrass.png');
-    game.load.image('bc', 'Images/tiles/bcgrass.png');
-    game.load.image('bc2', 'Images/tiles/bcgrass2.png');
-    game.load.image('bc3', 'Images/tiles/bcgrass3.png');
-
-    game.load.image('gh', 'Images/tiles/ghgrass.png');
-    game.load.image('gc', 'Images/tiles/gcgrass.png');
-    game.load.image('gc2', 'Images/tiles/gcgrass2.png');
-    game.load.image('gc3', 'Images/tiles/gcgrass3.png');
-
-		// Sprite sheets
-        game.load.spritesheet('imgStartButton', 'Images/startButton.png', 193, 67);
-
-
-    // UI (Help)
-    game.load.image('uiq', 'Images/ui/question.png');
-    game.load.image('uic', 'Images/ui/cross.png');
-
-
-    //Hospital
-        game.load.image('doctor', 'images/doctor.png');
-
-
-
-
   		var style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
   		var loadingText = game.add.text(0, 0, "Loading", style);
   		loadingText.setTextBounds(0, 385, 1024, 100);
@@ -66,17 +15,20 @@ var PreLoad = {
   		//	as the files below are loaded in.
   		this.load.setPreloadSprite(this.preloadBar);
 
+
   		/** GAME ASSETS **/
   		// Large BG images
       game.load.image('backgroundimg', 'Images/backgroundimg.png');
 
   		// Images
       game.load.image('g', 'Images/tiles/grass.png');
-      game.load.image('d', 'Images/tiles/dirt.png');
+      game.load.image('c', 'Images/tiles/concrete.png');
 
   		// Sprite sheets
       game.load.spritesheet('imgStartButton', 'Images/startButton.png', 193, 67);
 
+      //Hospital
+      game.load.image('doctor', 'images/doctor.png');
     },
 
     create: function () {
