@@ -2,7 +2,6 @@ var cursorPos, cursor;
 
 var cursors, wasd, mainPlayer;
 
-
 var Game = function (game) { };
 
 Game.Boot = function (game) { };
@@ -22,19 +21,16 @@ Game.Boot.prototype =
   },
   create: function () {
     this.grid = new Grid(game);
-
-
-
+    this.homeButton = game.add.button(1100, 550, 'g', function(){ return this.goToHome();}, this, 1,0);
+    this.restartButton = game.add.button(200, 550, 'g', function(){ return this.restartLevel();}, this, 1,0);
 
     //game.physics.isoArcade.gravity.setTo(0, 0, -500);
     cursorPos = new Phaser.Plugin.Isometric.Point3();
 
     this.putPeopleIn(game);
 
-
   },
   update: function () {
-
 
       for(var i = 0; i < this.people.length; i++){
           this.people[i].update();
@@ -55,7 +51,6 @@ Game.Boot.prototype =
     game.debug.text(game.time.fps || '--', 2, 14, "#bbbbbb");
   },
 
-
     putPeopleIn: function (game) {
         //Add Keyboard controls
 
@@ -69,6 +64,7 @@ Game.Boot.prototype =
             d: game.input.keyboard.addKey(Phaser.Keyboard.D),
             space: game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
         };
+
 
 
         wasd.w.onDown.add(function () {
@@ -86,6 +82,7 @@ Game.Boot.prototype =
         wasd.d.onDown.add(function () {
             mainPlayer.movePlayer('r');
         })
+
 
 
         var peopleArray = [
@@ -109,5 +106,15 @@ Game.Boot.prototype =
 
 
 
+
+
+
+    goToHome: function(){
+      this.state.start('StartScreen');
+    },
+
+    restartLevel: function(){
+      this.state.start('Game');
+    }
 
 };

@@ -22,14 +22,20 @@ var PreLoad = {
 
   		// Images
       game.load.image('g', 'Images/tiles/grass.png');
-      game.load.image('p', 'Images/tiles/placeholder.png');
-      game.load.image('c', 'Images/tiles/concrete.png');
+      game.load.image('p', 'Images/tiles/tile_purple.png');
+      game.load.image('c', 'Images/tiles/tile_white.png');
+      game.load.image('a', 'Images/greencurtain.png');
 
   		// Sprite sheets
-      game.load.spritesheet('imgStartButton', 'Images/startButton.png', 193, 67);
+      game.load.spritesheet('imgLevel1Button', 'Images/level1.png', 130, 122.101 , 2);
+      game.load.spritesheet('imgLevel2Button', 'Images/level2.png', 130, 122.101 , 2);
+      //game.load.spritesheet('doctor', 'Images/tiles/Sheets/doctor_sheet.png', 64, 74, 4);
 
       //Hospital
       game.load.image('doctor', 'images/doctor.png');
+
+      //furniture
+      game.load.image('drawersSE', 'Images/furniture/drawersSE.png');
     },
 
     create: function () {
