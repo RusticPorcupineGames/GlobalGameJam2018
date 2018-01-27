@@ -1,5 +1,5 @@
 var MoveCounter = function(game){
-  var _initial = 5;
+  var _initial = 25;
   var _moves = _initial;
 
   var title = game.add.text(1175, 50, 'Moves:', { fontSize: '16px', fill: '#000' });
