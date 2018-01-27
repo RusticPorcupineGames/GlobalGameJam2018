@@ -5,26 +5,30 @@ var Grid = function(game){
   isoGroup = game.add.group();
 
   this.grid = [
-    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
-    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
-    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
-    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
-    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
-    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
-    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
-    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
-    ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c']];
+    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
+    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
+    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
+    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
+    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
+    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
+    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
+    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
+    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
+    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
+    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
+    ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']];
 
-  // Add tiles to map
-  var size = 45;
+  // Add tiles to map - pretty awful hacked together function.
+  // Size = size of tile. 12 is grid size supported.
+  var size = 59;
   var i=0, j, tile;
-  for (var xx = 0; xx < size*7; xx += size) {
+  for (var xx = 0; xx < size*12; xx += size) {
     j=0;
-    for (var yy = 0; yy < size*7; yy += size) {
+    for (var yy = 0; yy < size*12; yy += size) {
       // Create a tile using the new game.add.isoSprite factory method at the specified position.
       // The last parameter is the group you want to add it to (just like game.add.sprite)
       tile = game.add.isoSprite(xx, yy, 0, this.grid[i][j], 1, isoGroup);
-      tile.isoGroupIndex = (7*i)+j;
+      tile.isoGroupIndex = (12*i)+j;
       j+=1;
     }
     i+=1;
