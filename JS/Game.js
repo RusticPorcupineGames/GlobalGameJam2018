@@ -1,6 +1,6 @@
 var cursorPos, cursor;
 
-var cursors, wasd;
+var cursors, wasd, mainPlayer;
 
 var Game = function (game) { };
 
@@ -25,16 +25,23 @@ Game.Boot.prototype =
     this.homeButton = game.add.button(1100, 550, 'imgStartButton', function(){ return this.goToHome();}, this, 1,0);
     this.restartButton = game.add.button(200, 550, 'imgStartButton', function(){ return this.restartLevel();}, this, 1,0);
 
-   // game.physics.isoArcade.gravity.setTo(0, 0, -500);
+    this.homeButton = game.add.button(1100, 550, 'imgHomeButton', function(){ return this.goToHome();}, this, 1,0);
+    this.restartButton = game.add.button(200, 550, 'imgRestartButton', function(){ return this.restartLevel();}, this, 1,0);
+
+
+    //game.physics.isoArcade.gravity.setTo(0, 0, -500);
     cursorPos = new Phaser.Plugin.Isometric.Point3();
 
     this.putPeopleIn(game);
+
   },
   update: function () {
 
       for(var i = 0; i < this.people.length; i++){
           this.people[i].update();
       }
+
+     // playerGroup.sort('y', Phaser.Group.SORT_ASCENDING);
 
       //
     //
@@ -53,12 +60,7 @@ Game.Boot.prototype =
         //Add Keyboard controls
 
         cursors = game.input.keyboard.createCursorKeys();
-        this.game.input.keyboard.addKeyCapture([
-            Phaser.Keyboard.LEFT,
-            Phaser.Keyboard.RIGHT,
-            Phaser.Keyboard.UP,
-            Phaser.Keyboard.DOWN
-        ]);
+
 
         wasd = {
             w: game.input.keyboard.addKey(Phaser.Keyboard.W),
@@ -68,20 +70,49 @@ Game.Boot.prototype =
             space: game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
         };
 
+
+
+        wasd.w.onDown.add(function () {
+            mainPlayer.movePlayer('u');
+        })
+
+        wasd.s.onDown.add(function () {
+            mainPlayer.movePlayer('d');
+        })
+
+        wasd.a.onDown.add(function () {
+            mainPlayer.movePlayer('l');
+        })
+
+        wasd.d.onDown.add(function () {
+            mainPlayer.movePlayer('r');
+        })
+
+
+
         var peopleArray = [
-            [128,128,'doctor'],
-            [288, 288, 'doctor']]
+            [0,'doctor'],
+            [5, 'doctor']]
 
         this.people = [];
 
         for(var i = 0; i < peopleArray.length; i++){
-            this.people.push(new Person(game, peopleArray[i][0], peopleArray[i][1], peopleArray[i][2]));
+            var p = new Person(game, peopleArray[i][0], peopleArray[i][1], peopleArray[i][2]);
+            this.people.push(p);
+
         }
+
 
         //set one player to be active
         this.people[0].isMainPlayer = true;
+        mainPlayer = this.people[0];
 
     },
+
+
+
+
+
 
     goToHome: function(){
       this.state.start('StartScreen');
@@ -90,4 +121,5 @@ Game.Boot.prototype =
     restartLevel: function(){
       this.state.start('Game');
     }
+
 };
