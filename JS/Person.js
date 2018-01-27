@@ -22,7 +22,13 @@ var Person = function(game, x, image) {
     this.step2 = game.add.audio('step2');
     this.step1.play();
     this.step2.play();
-  }
+  },
+
+  this.infect = function(){
+    this.isMainPlayer = true;
+    person.tint =  0x1FAA4B;
+    mainPlayer = this;
+  },
 
   this.doWalk = function(next) {
     var nextTilePosition = isoGroup.children[next]._isoPosition;
@@ -31,7 +37,12 @@ var Person = function(game, x, image) {
     if (isoGroup.children[next].hasAHuman) {
       for (var i = 0; i < people.length; i++) {
         if (people[i].currentTile == next) {
-          mainPlayer = people[i];
+          people[i].infect();
+
+          person.destroy(5);
+           // person.angle = -120;
+
+            person.scale.y *= -1;
           return;
         }
       }
