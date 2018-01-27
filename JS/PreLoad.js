@@ -25,6 +25,7 @@ var PreLoad = {
       game.load.image('p', 'Images/tiles/tile_purple.png');
       game.load.image('c', 'Images/tiles/tile_white.png');
       game.load.image('a', 'Images/greencurtain.png');
+      game.load.image('grave', 'Images/furniture/grave.png');
 
   		// Sprite sheets
       game.load.spritesheet('imgLevel1Button', 'Images/level1.png', 130, 122.101 , 2);
