@@ -17,18 +17,18 @@ function getLevel(number){
 
     case 2:
       return [
-        ['c', 'c', 'p', 'p', 'p', 'drawersSE', 'drawersSE', 'drawersSE', 'p', 'p', 'c', 'c'],
-        ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
+        ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
-        ['p', 'c', 'p', 'c', 'p', 'c', 'p', 'c', 'p', 'c', 'p', 'p'],
-        ['p', 'p', 'c', 'p', 'c', 'p', 'c', 'p', 'c', 'p', 'c', 'p'],
-        ['p', 'c', 'p', 'c', 'p', 'c', 'p', 'c', 'p', 'c', 'p', 'p'],
-        ['p', 'p', 'c', 'p', 'c', 'p', 'c', 'p', 'c', 'p', 'c', 'p'],
+        ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
-        ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
-        ['c', 'c', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'c', 'c']];
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p']];
 
       case 3:
         return [
@@ -58,9 +58,9 @@ function getPeopleLevel(number){
       break;
     case 2:
       return [
-          [10,'germ', 'germ'],
-          [0,'doctor','patient'],
-          [5, 'doctor','patient']];
+          [68,'germ', 'germ'],
+          [65,'doctor','patient'],
+          [63,'doctor','patient']];
       break;
     case 3:
         return [
