@@ -31,6 +31,9 @@ var PreLoad = {
 
       //Hospital
       game.load.image('doctor', 'images/doctor.png');
+
+      //furniture
+      game.load.image('drawersSE', 'Images/furniture/drawersSE.png');
     },
 
     create: function () {

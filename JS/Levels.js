@@ -2,6 +2,7 @@ function getLevel(number){
   switch(number){
     case 1:
       return [
+        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'drawersSE'],
         ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
         ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
         ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
@@ -12,8 +13,7 @@ function getLevel(number){
         ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
         ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
         ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']];
+        ['drawersSE', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'drawersSE']];
       case 2:
         return [
           ['p', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'p'],
