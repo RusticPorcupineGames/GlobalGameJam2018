@@ -34,6 +34,7 @@ var PreLoad = {
       game.load.spritesheet('doctor', 'Images/tiles/Sheets/doctor_sheet.png', 64, 74, 4);
       game.load.spritesheet('germ', 'Images/tiles/Sheets/germ_sheet.png', 64, 74, 4);
       game.load.spritesheet('patient1', 'Images/tiles/Sheets/patient_blonde_sheet.png', 64, 74, 4);
+      game.load.spritesheet('patient2', 'Images/tiles/Sheets/patient_brown_sheet.png', 64, 74, 4);
 
       //Hospital
 

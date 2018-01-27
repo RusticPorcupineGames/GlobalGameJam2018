@@ -26,49 +26,58 @@ var Person = function(game, x, image) {
 
   this.infect = function(){
     this.isMainPlayer = true;
-    person.tint =  0x1FAA4B;
+    person.tint =  0xDCFBE6;
     mainPlayer = this;
   },
+
+
+  this.die = function(p){
+     isoGroup.children[this.currentTile].hasAHuman = false;
+     people.splice(this.currentTile, 1);
+  },
+
 
   this.doWalk = function(next) {
     var nextTilePosition = isoGroup.children[next]._isoPosition;
     this.walkingAudio();
+
     //switch control to a new human instead of working
     if (isoGroup.children[next].hasAHuman) {
+
+        isoGroup.children[this.currentTile].hasAHuman = false;
+
       for (var i = 0; i < people.length; i++) {
         if (people[i].currentTile == next) {
           people[i].infect();
-
-          person.destroy(5);
-           // person.angle = -120;
-
-            person.scale.y *= -1;
+          this.die(person);
           return;
         }
       }
+    }else {
+        isoGroup.children[this.currentTile].hasAHuman = false;
+        isoGroup.children[next].hasAHuman = true;
+        this.currentTile = next;
+        var tween = game.add.tween(person);
+        tween.to({
+                isoZ: 0,
+                isoX: (nextTilePosition.x),
+                isoY: (nextTilePosition.y)
+            },
+            200,
+            Phaser.Easing.Linear.none, false).to({
+                isoZ: 0
+            },
+            200, Phaser.Easing.Linear.none, false);
+
+        if (this.oldTween != undefined && this.oldTween.isRunning) {
+            this.oldTween.chain(tween);
+        }
+
+        this.oldTween = tween;
+        tween.start();
     }
 
-    isoGroup.children[this.currentTile].hasAHuman = false;
-    isoGroup.children[next].hasAHuman = true;
-    this.currentTile = next;
-    var tween = game.add.tween(person);
-    tween.to({
-        isoZ: 0,
-        isoX: (nextTilePosition.x),
-        isoY: (nextTilePosition.y)
-      },
-      200,
-      Phaser.Easing.Linear.none, false).to({
-        isoZ: 0
-      },
-      200, Phaser.Easing.Linear.none, false);
 
-    if (this.oldTween != undefined && this.oldTween.isRunning) {
-      this.oldTween.chain(tween);
-    }
-
-    this.oldTween = tween;
-    tween.start();
   },
 
   this.goRight = function() {
