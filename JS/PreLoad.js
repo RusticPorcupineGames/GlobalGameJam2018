@@ -41,6 +41,9 @@ var PreLoad = {
 
       //walls
       game.load.image('wallSW', 'Images/tiles/wallSW.png');
+
+      //
+      game.load.audio('menuScreenMusic', 'audio/intro.mp3'); 
     },
 
     create: function () {
