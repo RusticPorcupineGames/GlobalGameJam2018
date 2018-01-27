@@ -2,7 +2,6 @@ var cursorPos, cursor;
 
 var cursors, wasd;
 
-
 var Game = function (game) { };
 
 Game.Boot = function (game) { };
@@ -23,21 +22,12 @@ Game.Boot.prototype =
   create: function () {
     this.grid = new Grid(game);
 
-
-
-
    // game.physics.isoArcade.gravity.setTo(0, 0, -500);
     cursorPos = new Phaser.Plugin.Isometric.Point3();
 
     this.putPeopleIn(game);
-
-
-
-
-
   },
   update: function () {
-
 
       for(var i = 0; i < this.people.length; i++){
           this.people[i].update();
@@ -55,7 +45,6 @@ Game.Boot.prototype =
   render: function () {
     game.debug.text(game.time.fps || '--', 2, 14, "#bbbbbb");
   },
-
 
     putPeopleIn: function (game) {
         //Add Keyboard controls
@@ -75,7 +64,6 @@ Game.Boot.prototype =
             d: game.input.keyboard.addKey(Phaser.Keyboard.D),
             space: game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
         };
-
 
         var peopleArray = [
             [128,128,'doctor'],
