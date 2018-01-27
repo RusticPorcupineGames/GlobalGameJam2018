@@ -87,23 +87,21 @@ Game.Boot.prototype =
 
     wasd.w.onDown.add(function () {
         mainPlayer.movePlayer('u');
-    })
+    });
 
     wasd.s.onDown.add(function () {
         mainPlayer.movePlayer('d');
-    })
+    });
 
     wasd.a.onDown.add(function () {
         mainPlayer.movePlayer('l');
-    })
+    });
 
     wasd.d.onDown.add(function () {
         mainPlayer.movePlayer('r');
-    })
+    });
 
-    var peopleArray = [
-        [0,'doctor'],
-        [5, 'doctor']]
+    var peopleArray = getPeopleLevel(game.levelSelected);
 
     for(var i = 0; i < peopleArray.length; i++){
         var p = new Person(game, peopleArray[i][0], peopleArray[i][1], peopleArray[i][2]);
