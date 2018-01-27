@@ -17,9 +17,16 @@ var Person = function(game, x, image) {
       game.iso.topologicalSort(isoGroup);
   },
 
+  this.walkingAudio = function() {
+    this.step1 = game.add.audio('step1');
+    this.step2 = game.add.audio('step2');
+    this.step1.play();
+    this.step2.play();
+  }
+
   this.doWalk = function(next) {
     var nextTilePosition = isoGroup.children[next]._isoPosition;
-
+    this.walkingAudio();
     //switch control to a new human instead of working
     if (isoGroup.children[next].hasAHuman) {
       for (var i = 0; i < people.length; i++) {
