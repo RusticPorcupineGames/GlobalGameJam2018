@@ -28,6 +28,7 @@ var Person = function(game, x, image) {
     this.isMainPlayer = true;
     person.tint =  0xDCFBE6;
     mainPlayer = this;
+    game.moveCounter.resetMoves();
   },
 
 
@@ -120,10 +121,6 @@ var Person = function(game, x, image) {
       }
     }
   },
-
-      this.doMove = function (){
-          console.log('asdsad');
-      },
 
 
 

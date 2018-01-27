@@ -11,9 +11,4 @@ var Germ = function(game,  x, image) {
     return something;
 }
 
-    // this.die = function(){
-    //     var t = game.add.tween(person).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None);
-    //     t.start();
-    // },
-
 
