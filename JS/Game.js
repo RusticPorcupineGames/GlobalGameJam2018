@@ -121,9 +121,7 @@ Game.Boot.prototype =
 
 
 
-        var peopleArray = [
-            [0,'doctor'],
-            [5, 'doctor']]
+        var peopleArray = getPeopleLevel(game.levelSelected);
 
 
 

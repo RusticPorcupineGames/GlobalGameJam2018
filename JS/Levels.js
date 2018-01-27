@@ -32,3 +32,19 @@ function getLevel(number){
     default:
   }
 }
+
+function getPeopleLevel(number){
+  switch(number){
+      case 1:
+        return [
+            [0,'doctor'],
+            [5, 'doctor']];
+        break;
+      case 2:
+          return [
+              [2,'doctor'],
+              [9, 'doctor']];
+          break;
+
+  }
+}
