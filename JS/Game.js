@@ -37,8 +37,11 @@ Game.Boot.prototype =
 
   },
   update: function () {
-      this.person.update();
 
+
+      for(var i = 0; i < this.people.length; i++){
+          this.people[i].update();
+      }
 
       //
     //
@@ -73,7 +76,19 @@ Game.Boot.prototype =
             space: game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
         };
 
-        //put people in
-        this.person = new Person(game, 128, 128, 'doctor');
+
+        var peopleArray = [
+            [128,128,'doctor'],
+            [288, 288, 'doctor']]
+
+        this.people = [];
+
+        for(var i = 0; i < peopleArray.length; i++){
+            this.people.push(new Person(game, peopleArray[i][0], peopleArray[i][1], peopleArray[i][2]));
+        }
+
+        //set one player to be active
+        this.people[0].isMainPlayer = true;
+
     }
 };
