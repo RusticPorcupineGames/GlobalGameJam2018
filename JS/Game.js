@@ -18,7 +18,7 @@ Game.Boot.prototype =
     game.bgImg = game.add.sprite(0, 0, 'backgroundimg');
     game.bgImg.tint = 0xfdfd96;
     //game.stage.backgroundColor = "#fdfd96";
-    game.iso.anchor.setTo(0.5, 0.02);
+    game.iso.anchor.setTo(0.466, 0.02);
   },
   create: function () {
     this.grid = new Grid(game);
