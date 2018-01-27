@@ -14,15 +14,17 @@ var Grid = function(game){
     for (var yy = 0; yy < size*12; yy += size) {
       // Create a tile using the new game.add.isoSprite factory method at the specified position.
       // The last parameter is the group you want to add it to (just like game.add.sprite)
-      tile = game.add.isoSprite(xx, yy, 0, this.grid[i][j], 1, isoGroup);
-//      tile.anchor.set(changeTo(this.grid[i][j]));
-
+      var yax = 0;
       switch (this.grid[i][j]) {
-        // case 'drawersSE':
-        //   tile.anchor.set(0, 0.47); //x axis the y axis
-        //   break;
+         case 'drawersSE':
+        yax = 52; //x axis the y axis
+           break;
         // //default:
       }
+
+      tile = game.add.isoSprite(xx-yax, yy-yax, 0, this.grid[i][j], 1, isoGroup);
+//      tile.anchor.set(changeTo(this.grid[i][j]));
+
 
       switch(this.grid[i][j]){
         case 'p':
