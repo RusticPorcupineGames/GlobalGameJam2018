@@ -15,6 +15,7 @@ var MoveCounter = function(game){
   }
 
   this.resetMoves = function(){
+    debugger;
     _moves = _initial;
     angleMax=0;
   }
