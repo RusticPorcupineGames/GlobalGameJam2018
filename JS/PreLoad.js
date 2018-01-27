@@ -27,6 +27,7 @@ var PreLoad = {
 
   		// Sprite sheets
       game.load.spritesheet('imgStartButton', 'Images/startButton.png', 193, 67);
+      //game.load.spritesheet('doctor', 'Images/tiles/Sheets/doctor_sheet.png', 64, 74, 4);
 
       //Hospital
       game.load.image('doctor', 'images/doctor.png');
