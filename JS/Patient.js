@@ -4,13 +4,11 @@ var Patient = function(game,  x, image) {
     something.movePlayer = function (direction) {
         game.moveCounter.useMove();
         apple.call(this, direction);
-
-
     };
 
     var d = something.die;
     something.die = function (p) {
-        d.call(this, p);
+
         var tween = game.add.tween(p);
         tween.to({
                 isoZ: 500,
@@ -20,6 +18,18 @@ var Patient = function(game,  x, image) {
             Phaser.Easing.Linear.none, false);
         tween.start();
 
+        var grave =  game.add.isoSprite(p._isoPosition.x, p._isoPosition.y, 0, 'grave', 0, isoGroup);
+        grave.alpha = 0;
+        grave.anchor.setTo(-0.25, 0.4);
+        var tween1 = game.add.tween(grave);
+        tween1.to(
+            { alpha: 1 },
+            1500,
+            Phaser.Easing.Linear.none, false);
+        tween1.start();
+
+        isoGroup.children[this.currentTile].isWalkable = false;
+        d.call(this, p);
     };
 
     return something;
