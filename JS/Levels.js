@@ -2,6 +2,21 @@ function getLevel(number){
   switch(number){
     case 1:
       return [
+        ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p']];
+
+    case 2:
+      return [
         ['c', 'c', 'p', 'p', 'p', 'drawersSE', 'drawersSE', 'drawersSE', 'p', 'p', 'c', 'c'],
         ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
@@ -15,7 +30,7 @@ function getLevel(number){
         ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
         ['c', 'c', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'c', 'c']];
 
-      case 2:
+      case 3:
         return [
           ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
           ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
@@ -35,20 +50,24 @@ function getLevel(number){
 
 function getPeopleLevel(number){
   switch(number){
-      case 1:
+    case 1:
+      return [
+          [61,'germ', 'germ'],
+          [67,'doctor','patient'],
+          [70, 'doctor','patient']];
+      break;
+    case 2:
+      return [
+          [10,'germ', 'germ'],
+          [0,'doctor','patient'],
+          [5, 'doctor','patient']];
+      break;
+    case 3:
         return [
             [10,'germ', 'germ'],
             [0,'doctor','patient'],
             [5, 'patient2','patient'],
             [8, 'patient1','patient']];
         break;
-      case 2:
-          return [
-              [10,'germ', 'germ'],
-              [2,'doctor','patient'],
-              [5, 'patient2','patient'],
-              [8, 'patient1','patient']];
-          break;
-
   }
 }
