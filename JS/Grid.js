@@ -17,7 +17,10 @@ var Grid = function(game){
       tile = game.add.isoSprite(xx, yy, 0, this.grid[i][j], 1, isoGroup);
       tile.isoGroupIndex = (12*i)+j;
       j+=1;
+
+
     }
+
     i+=1;
   }
 

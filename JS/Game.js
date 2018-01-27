@@ -1,6 +1,6 @@
 var cursorPos, cursor;
 
-var cursors, wasd;
+var cursors, wasd, mainPlayer;
 
 
 var Game = function (game) { };
@@ -26,13 +26,10 @@ Game.Boot.prototype =
 
 
 
-   // game.physics.isoArcade.gravity.setTo(0, 0, -500);
+    //game.physics.isoArcade.gravity.setTo(0, 0, -500);
     cursorPos = new Phaser.Plugin.Isometric.Point3();
 
     this.putPeopleIn(game);
-
-
-
 
 
   },
@@ -42,6 +39,8 @@ Game.Boot.prototype =
       for(var i = 0; i < this.people.length; i++){
           this.people[i].update();
       }
+
+     // playerGroup.sort('y', Phaser.Group.SORT_ASCENDING);
 
       //
     //
@@ -61,12 +60,7 @@ Game.Boot.prototype =
         //Add Keyboard controls
 
         cursors = game.input.keyboard.createCursorKeys();
-        this.game.input.keyboard.addKeyCapture([
-            Phaser.Keyboard.LEFT,
-            Phaser.Keyboard.RIGHT,
-            Phaser.Keyboard.UP,
-            Phaser.Keyboard.DOWN
-        ]);
+
 
         wasd = {
             w: game.input.keyboard.addKey(Phaser.Keyboard.W),
@@ -77,18 +71,43 @@ Game.Boot.prototype =
         };
 
 
+        wasd.w.onDown.add(function () {
+            mainPlayer.movePlayer('u');
+        })
+
+        wasd.s.onDown.add(function () {
+            mainPlayer.movePlayer('d');
+        })
+
+        wasd.a.onDown.add(function () {
+            mainPlayer.movePlayer('l');
+        })
+
+        wasd.d.onDown.add(function () {
+            mainPlayer.movePlayer('r');
+        })
+
+
         var peopleArray = [
-            [128,128,'doctor'],
-            [288, 288, 'doctor']]
+            [0,'doctor'],
+            [5, 'doctor']]
 
         this.people = [];
 
         for(var i = 0; i < peopleArray.length; i++){
-            this.people.push(new Person(game, peopleArray[i][0], peopleArray[i][1], peopleArray[i][2]));
+            var p = new Person(game, peopleArray[i][0], peopleArray[i][1], peopleArray[i][2]);
+            this.people.push(p);
+
         }
+
 
         //set one player to be active
         this.people[0].isMainPlayer = true;
+        mainPlayer = this.people[0];
 
-    }
+    },
+
+
+
+
 };
