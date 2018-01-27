@@ -31,10 +31,10 @@ var PreLoad = {
       game.load.spritesheet('imgLevel2Button', 'Images/level2.png', 130, 122.101 , 2);
       game.load.spritesheet('imgHomeButton', 'Images/home.png', 130, 122.101 , 2);
       game.load.spritesheet('imgRestartButton', 'Images/restart.png', 130, 122.101 , 2);
-      //game.load.spritesheet('doctor', 'Images/tiles/Sheets/doctor_sheet.png', 64, 74, 4);
+      game.load.spritesheet('doctor', 'Images/tiles/Sheets/doctor_sheet.png', 64, 74, 4);
 
       //Hospital
-      game.load.image('doctor', 'images/doctor.png');
+
 
       //furniture
       game.load.image('drawersSE', 'Images/furniture/drawersSE.png');

@@ -2,6 +2,8 @@ var cursorPos, cursor;
 
 var cursors, wasd, mainPlayer;
 
+people = [];
+
 var Game = function (game) { };
 
 Game.Boot = function (game) { };
@@ -34,8 +36,8 @@ Game.Boot.prototype =
   },
   update: function () {
 
-      for(var i = 0; i < this.people.length; i++){
-          this.people[i].update();
+      for(var i = 0; i < people.length; i++){
+          people[i].update();
       }
 
      // playerGroup.sort('y', Phaser.Group.SORT_ASCENDING);
@@ -91,18 +93,18 @@ Game.Boot.prototype =
             [0,'doctor'],
             [5, 'doctor']]
 
-        this.people = [];
+
 
         for(var i = 0; i < peopleArray.length; i++){
             var p = new Person(game, peopleArray[i][0], peopleArray[i][1], peopleArray[i][2]);
-            this.people.push(p);
+            people.push(p);
 
         }
 
 
         //set one player to be active
-        this.people[0].isMainPlayer = true;
-        mainPlayer = this.people[0];
+        people[0].isMainPlayer = true;
+        mainPlayer = people[0];
 
     },
 
