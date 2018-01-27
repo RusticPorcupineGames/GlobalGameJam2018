@@ -21,8 +21,10 @@ Game.Boot.prototype =
   },
   create: function () {
     this.grid = new Grid(game);
-    this.homeButton = game.add.button(1100, 550, 'g', function(){ return this.goToHome();}, this, 1,0);
-    this.restartButton = game.add.button(200, 550, 'g', function(){ return this.restartLevel();}, this, 1,0);
+
+    this.homeButton = game.add.button(1100, 550, 'imgHomeButton', function(){ return this.goToHome();}, this, 1,0);
+    this.restartButton = game.add.button(200, 550, 'imgRestartButton', function(){ return this.restartLevel();}, this, 1,0);
+
 
     //game.physics.isoArcade.gravity.setTo(0, 0, -500);
     cursorPos = new Phaser.Plugin.Isometric.Point3();
