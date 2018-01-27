@@ -35,10 +35,6 @@ Game.Boot.prototype =
     this.homeButton = game.add.button(1100, 550, 'imgHomeButton', function(){ return this.goToHome();}, this, 1,0);
     this.restartButton = game.add.button(200, 550, 'imgRestartButton', function(){ return this.restartLevel();}, this, 1,0);
 
-    // Draw at these coordinates
-    this.radialProgressBar = game.add.graphics(100, 100);
-    this.radialProgressBar.lineStyle(18, 0xff0000);
-
     //add the angle change as a tween
     game.add.tween(angle).to(
         { max: 360 },
@@ -57,17 +53,7 @@ Game.Boot.prototype =
     for(var i = 0; i < people.length; i++){
         people[i].update();
     }
-
-    //while circle not full (not done loading/not reached spawn time/not repaired fully)
-    this.radialProgressBar.clear();
-    this.radialProgressBar.lineStyle(18, 0xffffff);
-    //interpolate the color between red and green, taking 1 degree step to 360 degrees
-
-    this.radialProgressBar.lineColor = Phaser.Color.interpolateColor(color1, color2, 360, angle.max, 1);
-    //draw the corresponding arc, with the angle as a parameter
-    this.radialProgressBar.arc(0, 0, 80, angle.min, game.math.degToRad(angle.max), false);
-    this.radialProgressBar.endFill();
-    //radialProgressBar.arc(0, 0, 135, 0, game.math.degToRad(angle.max), false);
+    this.moveCounter.update();
   },
 
   render: function () {
