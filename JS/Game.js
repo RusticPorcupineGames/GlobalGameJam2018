@@ -82,6 +82,10 @@ Game.Boot.prototype =
         s: game.input.keyboard.addKey(Phaser.Keyboard.S),
         a: game.input.keyboard.addKey(Phaser.Keyboard.A),
         d: game.input.keyboard.addKey(Phaser.Keyboard.D),
+        left: game.input.keyboard.addKey(Phaser.Keyboard.LEFT),
+        right: game.input.keyboard.addKey(Phaser.Keyboard.RIGHT),
+        up: game.input.keyboard.addKey(Phaser.Keyboard.UP),
+        down: game.input.keyboard.addKey(Phaser.Keyboard.DOWN),
         space: game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
     };
 
@@ -99,6 +103,22 @@ Game.Boot.prototype =
 
     wasd.d.onDown.add(function () {
         mainPlayer.movePlayer('r');
+    });
+
+    wasd.up.onDown.add(function () {
+        mainPlayer.movePlayer('u');
+    });
+
+    wasd.down.onDown.add(function () {
+        mainPlayer.movePlayer('d');
+    });
+
+    wasd.left.onDown.add(function () {
+      mainPlayer.movePlayer('l');
+    });
+
+    wasd.right.onDown.add(function () {
+      mainPlayer.movePlayer('r');
     });
 
     var peopleArray = getPeopleLevel(game.levelSelected);
