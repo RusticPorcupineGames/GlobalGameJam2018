@@ -38,6 +38,9 @@ var PreLoad = {
 
       //furniture
       game.load.image('drawersSE', 'Images/furniture/drawersSE.png');
+
+      //walls
+      game.load.image('wallSW', 'Images/tiles/wallSW.png');
     },
 
     create: function () {

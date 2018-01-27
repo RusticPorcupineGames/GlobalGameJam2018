@@ -22,26 +22,14 @@ var Person = function(game, x, image) {
     person.animations.add('down', [3], 10, true);
     person.animations.play('down');
 
-
-
-
     this.update = function(){
-
-
         game.iso.topologicalSort(isoGroup);
-
-
-
-
-
-
 
     },
 
 
 
         this.doWalk = function(next){
-
 
             var nextTilePosition = isoGroup.children[next]._isoPosition;
 
@@ -62,19 +50,12 @@ var Person = function(game, x, image) {
                         return;
                     }
 
-
-
                 }
-
-
 
             }
 
-
             isoGroup.children[this.currentTile].hasAHuman = false;
             isoGroup.children[next].hasAHuman = true;
-
-
 
             this.currentTile = next;
 
@@ -97,18 +78,31 @@ var Person = function(game, x, image) {
 
    this.goRight = function(){
 
+
        if(this.currentTile < 132){
-           this.doWalk(this.currentTile + 12);
+
            person.animations.play('right');
+
+      var next = this.currentTile + 12;
+       if(isoGroup.children[next].isWalkable && this.currentTile < 132){
+           this.doWalk(next);
+
+       }
        }
 
    },
 
    this.goLeft = function () {
 
+
         if(this.currentTile > 11){
-            this.doWalk(this.currentTile - 12);
+
             person.animations.play('left');
+
+      var next = this.currentTile - 12;
+        if(isoGroup.children[next].isWalkable && this.currentTile > 11) {
+            this.doWalk(next);
+        }
         }
 
 
@@ -116,17 +110,30 @@ var Person = function(game, x, image) {
 
     this.goUp = function () {
 
-        if(this.currentTile%12 != 0){
-            this.doWalk(this.currentTile - 1);
+
+        if(this.currentTile%12 != 0) {
+
             person.animations.play('up');
+
+
+            var next = this.currentTile - 1;
+            if (isoGroup.children[next].isWalkable && this.currentTile % 12 != 0) {
+                this.doWalk(next);
+            }
         }
 
     },
 
     this.goDown = function () {
+
         if(this.currentTile%12 != 11){
-            this.doWalk(this.currentTile + 1);
+
             person.animations.play('down');
+
+      var next = this.currentTile + 1;
+        if(isoGroup.children[next].isWalkable && this.currentTile%12 != 11) {
+            this.doWalk(next);
+        }
         }
 
     },
