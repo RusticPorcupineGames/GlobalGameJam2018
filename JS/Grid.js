@@ -20,7 +20,7 @@ var Grid = function(game){
 
       switch (this.grid[i][j]) {
         case 'drawersSE':
-          tile.anchor.set(0, 0.5); //x axis the y axis
+          tile.anchor.set(0, 0.47); //x axis the y axis
           break;
         //default:
 
