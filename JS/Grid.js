@@ -19,16 +19,19 @@ var Grid = function(game){
 //      tile.anchor.set(changeTo(this.grid[i][j]));
 
       switch (this.grid[i][j]) {
-        case 'drawersSE':
-          tile.anchor.set(0, 0.47); //x axis the y axis
-          break;
-        //default:
+        // case 'drawersSE':
+        //   tile.anchor.set(0, 0.47); //x axis the y axis
+        //   break;
+        // //default:
 
       }
 
       tile.isoGroupIndex = (12*i)+j;
       j+=1;
+
+
     }
+
     i+=1;
   }
 
