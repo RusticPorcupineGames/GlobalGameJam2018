@@ -62,33 +62,34 @@ var flag = true;
         },
 
    this.goRight = function(){
-
-       if(this.currentTile < 132){
-           this.doWalk(this.currentTile + 12);
+      var next = this.currentTile + 12;
+       if(isoGroup.children[next].isWalkable && this.currentTile < 132){
+           this.doWalk(next);
        }
 
    },
 
    this.goLeft = function () {
-
-        if(this.currentTile > 11){
-            this.doWalk(this.currentTile - 12);
+      var next = this.currentTile - 12;
+        if(isoGroup.children[next].isWalkable && this.currentTile > 11){
+            this.doWalk(next);
         }
 
 
    },
 
     this.goUp = function () {
-
-        if(this.currentTile%12 != 0){
-            this.doWalk(this.currentTile - 1);
-        }
+      var next = this.currentTile - 1;
+      if(isoGroup.children[next].isWalkable && this.currentTile%12 != 0){
+          this.doWalk(next);
+      }
 
     },
 
     this.goDown = function () {
-        if(this.currentTile%12 != 11){
-            this.doWalk(this.currentTile + 1);
+      var next = this.currentTile + 1;
+        if(isoGroup.children[next].isWalkable && this.currentTile%12 != 11){
+            this.doWalk(next);
         }
 
     },
