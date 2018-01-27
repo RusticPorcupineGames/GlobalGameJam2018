@@ -2,7 +2,7 @@ function getLevel(number){
   switch(number){
     case 1:
       return [
-        ['c', 'c', 'p', 'p', 'p', 'p', 'drawersSE', 'p', 'p', 'p', 'c', 'c'],
+        ['c', 'c', 'p', 'p', 'p', 'drawersSE', 'drawersSE', 'drawersSE', 'p', 'p', 'c', 'c'],
         ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
