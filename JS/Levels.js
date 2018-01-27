@@ -37,13 +37,15 @@ function getPeopleLevel(number){
   switch(number){
       case 1:
         return [
-            [0,'doctor'],
-            [5, 'doctor']];
+            [10,'germ', 'germ'],
+            [0,'doctor','patient'],
+            [5, 'doctor','patient']];
         break;
       case 2:
           return [
-              [2,'doctor'],
-              [9, 'doctor']];
+              [10,'germ', 'germ'],
+              [2,'doctor','patient'],
+              [9, 'doctor','patient']];
           break;
 
   }

@@ -124,7 +124,23 @@ Game.Boot.prototype =
     var peopleArray = getPeopleLevel(game.levelSelected);
 
     for(var i = 0; i < peopleArray.length; i++){
-        var p = new Person(game, peopleArray[i][0], peopleArray[i][1], peopleArray[i][2]);
+
+        var p;
+
+        switch(peopleArray[i][2]){
+            case 'germ':
+                p = new Germ(game, peopleArray[i][0], peopleArray[i][1]);
+                break;
+            case 'patient':
+                p = new Patient(game, peopleArray[i][0], peopleArray[i][1]);
+                break;
+            default:
+                p = new Person(game, peopleArray[i][0], peopleArray[i][1]);
+                break;
+        }
+
+
+
         people.push(p);
     }
 

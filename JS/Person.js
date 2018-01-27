@@ -94,6 +94,12 @@ var Person = function(game, x, image) {
     }
   },
 
+      this.doMove = function (){
+          console.log('asdsad');
+      },
+
+
+
   this.movePlayer = function(direction) {
     switch (direction) {
       case 'u':
@@ -109,5 +115,13 @@ var Person = function(game, x, image) {
         this.goRight();
         break;
     }
+
+    return
   }
+
+
+
 }
+
+
+
