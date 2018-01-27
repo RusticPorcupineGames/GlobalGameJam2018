@@ -30,6 +30,7 @@ var MoveCounter = function(game){
     if(angleMax > 360) {
       countText.text = --_moves;
       angleMax = 0;
-    }
+    };
+    return _moves;
   }
 }

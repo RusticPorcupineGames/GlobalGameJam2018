@@ -5,11 +5,11 @@ function getLevel(number){
         ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
-        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
-        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
@@ -52,9 +52,9 @@ function getPeopleLevel(number){
   switch(number){
     case 1:
       return [
-          [10,'germ', 'germ'],
-          [0,'doctor','patient'],
-          [5, 'doctor','patient']];
+          [61,'germ', 'germ'],
+          [67,'doctor','patient'],
+          [70, 'doctor','patient']];
       break;
     case 2:
       return [
@@ -65,8 +65,9 @@ function getPeopleLevel(number){
     case 3:
         return [
             [10,'germ', 'germ'],
-            [2,'doctor','patient'],
-            [9, 'doctor','patient']];
+            [0,'doctor','patient'],
+            [5, 'patient2','patient'],
+            [8, 'patient1','patient']];
         break;
   }
 }

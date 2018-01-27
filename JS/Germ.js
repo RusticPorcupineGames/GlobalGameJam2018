@@ -1,14 +1,19 @@
-var Germ = function(game, x, image) {
-    Person.call(this, game, x, image);
+var Germ = function(game,  x, image) {
+    var something = new Person(game,  x, image);
+    var apple = something.die;
+    something.die = function (p) {
+        apple.call(this, p);
+        var t = game.add.tween(p).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None);
+        t.start();
 
+    }
 
-    // this.movePlayer = function(direction){
-    //     console.log('sad');
-    //     this.doMove.call(direction);
-    // }
-
-
-
-
-
+    return something;
 }
+
+    // this.die = function(){
+    //     var t = game.add.tween(person).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None);
+    //     t.start();
+    // },
+
+
