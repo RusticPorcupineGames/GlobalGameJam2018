@@ -53,7 +53,9 @@ Game.Boot.prototype =
     for(var i = 0; i < people.length; i++){
         people[i].update();
     }
-    game.moveCounter.update();
+    if (game.moveCounter.update() == 0){
+          this.state.start('FailScreen');
+    };
   },
 
   render: function () {
