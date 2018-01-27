@@ -31,7 +31,7 @@ Game.Boot.prototype =
     people = [];
     this.grid = new Grid(game);
 
-    this.moveCounter = new MoveCounter(game);
+    game.moveCounter = new MoveCounter(game);
     this.homeButton = game.add.button(1100, 550, 'imgHomeButton', function(){ return this.goToHome();}, this, 1,0);
     this.restartButton = game.add.button(200, 550, 'imgRestartButton', function(){ return this.restartLevel();}, this, 1,0);
 
@@ -53,7 +53,7 @@ Game.Boot.prototype =
     for(var i = 0; i < people.length; i++){
         people[i].update();
     }
-    this.moveCounter.update();
+    game.moveCounter.update();
   },
 
   render: function () {

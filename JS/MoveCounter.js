@@ -10,8 +10,8 @@ var MoveCounter = function(game){
   var angleMax = 0;
 
   this.useMove = function(){
-    return --_moves;
     angleMax=0;
+    countText.text =--_moves;
   }
 
   this.resetMoves = function(){

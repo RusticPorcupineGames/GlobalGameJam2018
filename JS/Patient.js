@@ -3,8 +3,7 @@ var Patient = function(game,  x, image) {
     var apple = something.movePlayer;
     something.movePlayer = function (direction) {
         apple.call(this, direction);
-
-        
+        game.moveCounter.useMove();
 
     }
 
