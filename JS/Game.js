@@ -2,6 +2,11 @@ var cursorPos, cursor;
 
 var cursors, wasd, mainPlayer;
 
+var angle = { min: 0, max: 0 };
+var color1 = 0x80ff00;
+var color2 = 0xff0000;
+var radialProgressBar;
+
 var Game = function (game) { };
 
 Game.Boot = function (game) { };
@@ -21,13 +26,26 @@ Game.Boot.prototype =
   },
   create: function () {
     this.grid = new Grid(game);
+
     this.moveCounter = new MoveCounter(game);
     this.homeButton = game.add.button(1100, 550, 'imgStartButton', function(){ return this.goToHome();}, this, 1,0);
     this.restartButton = game.add.button(200, 550, 'imgStartButton', function(){ return this.restartLevel();}, this, 1,0);
-
     this.homeButton = game.add.button(1100, 550, 'imgHomeButton', function(){ return this.goToHome();}, this, 1,0);
     this.restartButton = game.add.button(200, 550, 'imgRestartButton', function(){ return this.restartLevel();}, this, 1,0);
 
+    // Draw at these coordinates
+    radialProgressBar = game.add.graphics(100, 100);
+    radialProgressBar.lineStyle(18, 0xff0000);
+
+    //add the angle change as a tween
+    game.add.tween(angle).to(
+        { max: 360 },
+        5000, // Time duration
+        "Linear",
+        true,
+        0,
+        -1,
+        false);
 
     //game.physics.isoArcade.gravity.setTo(0, 0, -500);
     cursorPos = new Phaser.Plugin.Isometric.Point3();
@@ -51,6 +69,17 @@ Game.Boot.prototype =
     // game.iso.unproject(game.input.activePointer.position, cursorPos);
     //
     // this.grid.update();
+
+    //while circle not full (not done loading/not reached spawn time/not repaired fully)
+    radialProgressBar.clear();
+    radialProgressBar.lineStyle(18, 0xffffff);
+    //interpolate the color between red and green, taking 1 degree step to 360 degrees
+
+    radialProgressBar.lineColor = Phaser.Color.interpolateColor(color1, color2, 360, angle.max, 1);
+    //draw the corresponding arc, with the angle as a parameter
+    radialProgressBar.arc(0, 0, 80, angle.min, game.math.degToRad(angle.max), false);
+    radialProgressBar.endFill();
+    //radialProgressBar.arc(0, 0, 135, 0, game.math.degToRad(angle.max), false);
   },
   render: function () {
     game.debug.text(game.time.fps || '--', 2, 14, "#bbbbbb");
