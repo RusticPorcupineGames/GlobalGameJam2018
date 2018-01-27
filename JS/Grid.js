@@ -3,7 +3,7 @@ var isoGroup = [];
 var Grid = function(game){
   isoGroup = game.add.group();
 
-  this.grid = getLevel(1);
+  this.grid = getLevel(2);
 
   // Add tiles to map - pretty awful hacked together function.
   // Size = size of tile. 12 is grid size supported.
