@@ -23,7 +23,7 @@ var PreLoad = {
   		// Images
       game.load.image('g', 'Images/tiles/grass.png');
       game.load.image('p', 'Images/tiles/placeholder.png');
-      game.load.image('c', 'Images/tiles/concrete.png');
+      game.load.image('c', 'Images/tiles/tile_white.png');
 
   		// Sprite sheets
       game.load.spritesheet('imgStartButton', 'Images/startButton.png', 193, 67);
