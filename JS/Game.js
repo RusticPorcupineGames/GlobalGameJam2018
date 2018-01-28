@@ -38,6 +38,8 @@ Game.Boot.prototype =
     this.homeButton = game.add.button(1100, 550, 'imgHomeButton', function(){ return this.goToHome();}, this, 1,0);
     this.restartButton = game.add.button(200, 550, 'imgRestartButton', function(){ return this.restartLevel();}, this, 1,0);
 
+    game.failReason = '';
+
     //add the angle change as a tween
     game.add.tween(angle).to(
         { max: 360 },
@@ -59,9 +61,9 @@ Game.Boot.prototype =
         people[i].update();
     }
     if (game.moveCounter.update() == 0){
-          this.state.start('FailScreen');
+        game.failReason = 'moves';
+        this.state.start('FailScreen');
     }
-
 
     if(patients == 0){
         this.state.start('EndScreen');
@@ -71,6 +73,11 @@ Game.Boot.prototype =
       for(var i = 0; i < people.length; i++){
           people[i].pathfind();
       }
+    }
+
+    if(isoGroup.children[mainPlayer.currentTile].willHealYou){
+        game.failReason = 'doctor';
+        this.state.start('FailScreen');
     }
 
   },
