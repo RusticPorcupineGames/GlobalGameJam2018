@@ -22,11 +22,12 @@ var Person = function(game, x, image) {
     this.step2 = game.add.audio('step2');
     this.step1.play();
     this.step2.play();
+
   },
 
   this.infect = function(){
     this.isMainPlayer = true;
-    person.tint =  0xDCFBE6;
+    person.tint =  0xb4ead1;
     mainPlayer = this;
     game.moveCounter.resetMoves();
   },
@@ -49,7 +50,7 @@ var Person = function(game, x, image) {
 
       for (var i = 0; i < people.length; i++) {
         if (people[i].currentTile == next) {
-          people[i].infect();
+          people[i].infect(person);
           this.die(person);
           return;
         }
@@ -140,7 +141,6 @@ var Person = function(game, x, image) {
         break;
     }
 
-    return
   }
 
 

@@ -53,8 +53,8 @@ function getPeopleLevel(number){
     case 1:
       return [
           [61,'germ', 'germ'],
-          [67,'doctor','patient'],
-          [70, 'doctor','patient']];
+          [67,'patient2','patient'],
+          [70, 'patient1','patient']];
       break;
     case 2:
       return [
