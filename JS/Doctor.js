@@ -1,5 +1,5 @@
-var Doctor = function(game,  x, image) {
-    var something = new Person(game, x, image);
+var Doctor = function(game,  x, image, patrol) {
+    var something = new Person(game, x, image, patrol);
 
 
 
@@ -19,7 +19,7 @@ var Doctor = function(game,  x, image) {
 
         //remove red tiles
 
-        move.call(this, direction);
+        return move.call(this, direction);
 
 
 

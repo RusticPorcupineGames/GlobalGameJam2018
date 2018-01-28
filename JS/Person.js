@@ -159,7 +159,6 @@ var Person = function(game, x, image, patrol) {
     switch(this.patrol){
       case 'line':
           if (!this.movePlayer(this.direction)) {
-            debugger;
             this.movePlayer(this.getOppositeDirection(this.direction));
           }
           break;
