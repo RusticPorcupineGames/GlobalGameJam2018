@@ -19,6 +19,7 @@ var PreLoad = {
   		/** GAME ASSETS **/
   		// Large BG images
       game.load.image('backgroundimg', 'Images/backgroundimg.png');
+      game.load.image('menubackgroundimg', 'Images/blur-hospital.jpg');
 
 
   		// Images
