@@ -21,6 +21,7 @@ var Grid = function (game) {
         case 'tilepurpledoorNW':
         case 'tilepurpledoorNWwallLHS':
         case 'tilepurpledoorNWwallRHS':
+        case 'tilepurpleemergencydoorSW':
           yax = 74;
           break;
         case 'b':

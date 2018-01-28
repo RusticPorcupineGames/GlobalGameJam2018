@@ -9,7 +9,7 @@ function getLevel(number) {
         ['e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e'],
         ['p', 'p', 'p', 'p', 'tilepurpledoorNWwallRHS', 'tilepurpledoorNW', 'tilepurpledoorNWwallLHS', 'p', 'p', 'p', 'p', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
-        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['tilepurpleemergencydoorSW', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
         ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
         ['e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e'],
@@ -80,7 +80,7 @@ function getLevel(number) {
     case 6:
       return [
         ['p', 'tilepurpledoorNWwallRHS', 'tilepurpledoorNW', 'tilepurpledoorNWwallLHS', 'p', 'p', 'p', 'p', 'tilepurpledoorNWwallRHS', 'tilepurpledoorNW', 'tilepurpledoorNWwallLHS', 'p'],
-        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'drawersSE', 'c', 'c', 'drawersSE', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'd', 'b', 'c', 'c', 'c', 'c', 'p'],
