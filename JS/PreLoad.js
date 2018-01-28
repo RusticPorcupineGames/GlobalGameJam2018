@@ -69,9 +69,9 @@ var PreLoad = {
       game.load.image('d', 'Images/furniture/bedCurtain_SE.png');
 
       //walls
-      game.load.image('tilepurpledoorNWwallLHS', 'Images/tiles/tile_purpledoorNWwallLHS.png');
-      game.load.image('tilepurpledoorNWwallRHS', 'Images/tiles/tile_purpledoorNWwallRHS.png');
-      game.load.image("tilepurpledoorNW", 'Images/tiles/tile_purpledoorNW.png');
+      game.load.image('tilepurpledoorNWwallLHS', 'Images/tiles/tile_purpledoorSEwallLHS.png');
+      game.load.image('tilepurpledoorNWwallRHS', 'Images/tiles/tile_purpledoorSEwallRHS.png');
+      game.load.image("tilepurpledoorNW", 'Images/tiles/tile_purpledoorSE.png');
       game.load.image('wallSW', 'Images/tiles/wallSW.png');
 
       //audio
