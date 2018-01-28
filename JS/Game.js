@@ -6,10 +6,6 @@ var patients = 0;
 people = [];
 
 var angle = { min: 0, max: 0 };
-var color1 = 0x80ff00;
-var color2 = 0xff0000;
-var radialProgressBar;
-
 
 var Game = function (game) { };
 
@@ -50,18 +46,19 @@ Game.Boot.prototype =
 
     cursorPos = new Phaser.Plugin.Isometric.Point3();
     this.putPeopleIn(game);
-
-
   },
 
   update: function () {
     for(var i = 0; i < people.length; i++){
         people[i].update();
     }
-    if (game.moveCounter.update() == 0){
-          this.state.start('FailScreen');
-    }
 
+    if (!mainPlayer.isGerm){
+      if (game.moveCounter.update() == 0){
+            this.state.start('FailScreen');
+      }
+    }
+   else game.moveCounter.germUpdate();
 
     if(patients == 0){
         this.state.start('EndScreen');
