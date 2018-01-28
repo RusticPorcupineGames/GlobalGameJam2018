@@ -20,7 +20,6 @@ var PreLoad = {
   		// Large BG images
       game.load.image('backgroundimg', 'Images/backgroundimg.png');
 
-      game.load.image('logo','Images/hospitalbedlam.png');
 
   		// Images
       game.load.image('g', 'Images/tiles/grass.png');
@@ -29,7 +28,10 @@ var PreLoad = {
       game.load.image('a', 'Images/greencurtain.png');
       game.load.image('grave', 'Images/furniture/grave.png');
 
-  		// Sprite sheets
+      //gamelogo
+      game.load.image('logo','Images/hospitalbedlam.png');
+
+      // Sprite sheets
       game.load.spritesheet('imgLevel1Button', 'Images/level1.png', 130, 122.101 , 2);
       game.load.spritesheet('imgLevel2Button', 'Images/level2.png', 130, 122.101 , 2);
       game.load.spritesheet('imgLevel3Button', 'Images/level1.png', 130, 122.101 , 2);
