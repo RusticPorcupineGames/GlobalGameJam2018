@@ -29,10 +29,13 @@ var Person = function(game, x, image, patrol) {
 
   this.infect = function(){
     this.isMainPlayer = true;
+
+    // kill counter and resetMoves are not working when they are being called from here, anyone got any ideas??
+
     game.killCounter.update();
+    game.moveCounter.resetMoves();
     person.tint =  0xb4ead1;
     mainPlayer = this;
-    game.moveCounter.resetMoves();
     patients --;
     return true;
   },
