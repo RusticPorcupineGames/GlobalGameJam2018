@@ -23,10 +23,17 @@ Game.Boot.prototype =
     game.bgImg.tint = 0xfdfd96;
     //game.stage.backgroundColor = "#fdfd96";
     game.iso.anchor.setTo(0.466, 0.035);
+
+    game.time.desiredFps = 60;
+
+
   },
   create: function () {
     people = [];
     patients = 0;
+      game.Healed = false;
+      game.Healed2 = false;
+
     this.grid = new Grid(game);
 
     game.moveCounter = new MoveCounter(game);
@@ -51,7 +58,11 @@ Game.Boot.prototype =
   },
 
   update: function () {
-    for(var i = 0; i < people.length; i++){
+     if(game.Healed2){
+         this.state.start('FailScreen');
+     }
+
+      for(var i = 0; i < people.length; i++){
       if (!people[i].isMainPlayer)
         people[i].update();
     } // wrong place - this calls sort - now player moves!!
@@ -69,7 +80,18 @@ Game.Boot.prototype =
         this.state.start('EndScreen');
     }
 
-    if (game.moveCounter.checkForTurn()){}
+    if (game.moveCounter.checkForTurn()){
+
+
+    }
+
+    if(game.moveCounter.resetFlag){
+        game.moveCounter.resetFlag =false;
+        for(var i = 0; i < people.length; i++){
+                  people[i].pathfind();
+              }
+    }
+
     //   for(var i = 0; i < people.length; i++){
     //       people[i].pathfind();
     //   }
@@ -77,7 +99,12 @@ Game.Boot.prototype =
 
     if(isoGroup.children[mainPlayer.currentTile].willHealYou){
         game.failReason = 'doctor';
-        this.state.start('FailScreen');
+
+if(!game.Healed){
+
+    mainPlayer.heal(this);
+}
+
     }
 
   },

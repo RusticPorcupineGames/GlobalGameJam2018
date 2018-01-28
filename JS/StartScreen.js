@@ -1,5 +1,4 @@
-
-
+var music;
 var FILTER_VIGNETTE = 0;
 var FILTER_FILMGRAIN = 1;
 var StartScreen = {
@@ -13,7 +12,7 @@ var StartScreen = {
     this.logo.anchor.setTo(0.5,0.5);
     //https://dzone.com/articles/why-does-javascript-loop-only-use-last-value
     var totalLevels = 6;
-    
+
     this.filter= []
     this.filter[FILTER_VIGNETTE] = game.add.filter('Vignette');
     this.filter[FILTER_VIGNETTE].size = 0.3;
@@ -35,9 +34,13 @@ var StartScreen = {
        game.add.button(xWidthOffset, 250, buttonName,function(){return this.startGame(_level);}, this, 1, 0).anchor.setTo(0.5,0);
      };
 
-        //this.music = game.add.audio('menuScreenMusic');
-        //this.music.play();
-        //game.input.onDown.add(changeVolume, this);
+   // debugger;
+    if(music == undefined){
+        music = game.add.audio('menuScreenMusic');
+        music.loop = true;
+        music.play();
+   }
+
     },
 
     startGame: function (level) {
