@@ -6,7 +6,7 @@ var EndScreen = {
         game.add.text(300,250, "Wooohooooo", style);
 
         var nextLevel = game.levelSelected +1;
-        if(nextLevel > numberOflevels) nextLevel = 1;
+        if(nextLevel > 6) nextLevel = 1;
 
         this.buttonStartLevel1 = game.add.button(game.world.centerX - 200, 400, 'nextLevelBtn', function(){ return this.startGame(nextLevel);}, this, 1,0);
     },
