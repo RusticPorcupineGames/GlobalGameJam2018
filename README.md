@@ -21,7 +21,7 @@ You are an infection. Your mission, should you choose to accept it, is to infect
 Play Now!: 
 https://rusticporcupinegames.github.io/GlobalGameJam2018/
 
-'''
+```
 -├── Images
  -│   Contains all images
  -├── JS
@@ -32,4 +32,4 @@ https://rusticporcupinegames.github.io/GlobalGameJam2018/
  -├── audio
  -│   Contains all audio files
  -└── index.html
- '''
+```
