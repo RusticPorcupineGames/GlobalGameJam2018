@@ -79,18 +79,18 @@ function getLevel(number) {
 
     case 6:
       return [
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'p', 'p', 'p', 'p', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']];
+        ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'p', 'p', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'p', 'p', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'p', 'p', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'p', 'p', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p']];
 
     case 7:
       return [
@@ -227,10 +227,19 @@ function getPeopleLevel(number) {
         [64, 'doctor', 'doctor', 'line'],
         [99, 'doctor', 'doctor', 'line'],
         [62, 'patient2', 'patient', 'line'],
-        [49, 'patient2', 'patient', 'none'],
-        [89, 'patient2', 'patient', 'none']];
+        [49, 'patient1', 'patient', 'none'],
+        [89, 'patient1', 'patient', 'none']];
       break;
     case 6:
+    return [
+        [13,'germ', 'germ','none'],
+        [37,'doctor','doctor','line'],
+        [63,'doctor','doctor','line'],
+        [78,'doctor','doctor','line'],
+        [104,'doctor','doctor','line'],
+        [33,'patient2','patient','none'],
+        [117,'patient2','patient','none'],
+        [125,'patient2','patient','none']];
     case 7:
     case 8:
     case 9:
