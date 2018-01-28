@@ -45,7 +45,7 @@ var MoveCounter = function(game){
     radialProgressBar.arc(0, 0, 80, 0, game.math.degToRad(angleMax), false);
     radialProgressBar.endFill();
 
-    angleMax += 10;
+    angleMax += 1;
     if(angleMax > 360) {
       countText.text = --_moves;
       angleMax = 0;
