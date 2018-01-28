@@ -24,13 +24,15 @@ var Person = function(game, x, image, patrol) {
     this.step2 = game.add.audio('step2');
     this.step1.play();
     this.step2.play();
+
   },
 
   this.infect = function(){
     this.isMainPlayer = true;
-    person.tint =  0xDCFBE6;
+    person.tint =  0xb4ead1;
     mainPlayer = this;
     game.moveCounter.resetMoves();
+    return true;
   },
 
 
@@ -51,8 +53,11 @@ var Person = function(game, x, image, patrol) {
 
       for (var i = 0; i < people.length; i++) {
         if (people[i].currentTile == next) {
-          people[i].infect();
-          this.die(person);
+          var infected = people[i].infect(person);
+          if(infected){
+              this.die(person);
+          }
+
           return;
         }
       }
@@ -144,7 +149,7 @@ var Person = function(game, x, image, patrol) {
       case 'r':
         return this.goRight();
     }
-    return
+
   }
 
   this.pathfind = function(){

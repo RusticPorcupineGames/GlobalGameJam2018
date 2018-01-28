@@ -1,5 +1,7 @@
+
 var Patient = function(game,  x, image, patrol) {
     var something = new Person(game,  x, image, patrol);
+    patients ++;
     var apple = something.movePlayer;
     something.movePlayer = function (direction) {
         if (this.isMainPlayer)
@@ -9,6 +11,7 @@ var Patient = function(game,  x, image, patrol) {
 
     var d = something.die;
     something.die = function (p) {
+        patients --;
 
         var tween = game.add.tween(p);
         tween.to({
@@ -31,6 +34,8 @@ var Patient = function(game,  x, image, patrol) {
 
         isoGroup.children[this.currentTile].isWalkable = false;
         d.call(this, p);
+
+
     };
 
     return something;
