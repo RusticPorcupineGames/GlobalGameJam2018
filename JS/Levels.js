@@ -80,10 +80,10 @@ function getLevel(number) {
     case 6:
       return [
         ['p', 'tilepurpledoorNWwallRHS', 'tilepurpledoorNW', 'tilepurpledoorNWwallLHS', 'p', 'p', 'p', 'p', 'tilepurpledoorNWwallRHS', 'tilepurpledoorNW', 'tilepurpledoorNWwallLHS', 'p'],
-        ['p', 'c', 'c', 'c', 'drawersSE', 'c', 'c', 'drawersSE', 'c', 'c', 'c', 'p'],
+        ['p', 'drawersSE', 'c', 'c', 'd', 'c', 'c', 'd', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
-        ['p', 'c', 'c', 'c', 'c', 'd', 'b', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'b', 'b', 'c', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'd', 'b', 'c', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'd', 'b', 'c', 'c', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'd', 'b', 'c', 'c', 'c', 'c', 'p'],
@@ -140,7 +140,7 @@ function getPeopleLevel(number) {
       break;
     case 6:
     return [
-        [13,'germ', 'germ','none'],
+        [14,'germ', 'germ','none'],
         [37,'doctor','doctor','line'],
         [63,'doctor','doctor','line'],
         [79,'doctor','doctor','line'],

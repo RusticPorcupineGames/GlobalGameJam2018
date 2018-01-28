@@ -40,6 +40,7 @@ var Grid = function (game) {
         case 'tilepurpledoorNW':
         case 'tilepurpledoorNWwallLHS':
         case 'tilepurpledoorNWwallRHS':
+        case 'tilepurpleemergencydoorSW':
         case 'b':
         case 'd':
         case 'e':
