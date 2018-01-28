@@ -30,6 +30,17 @@ var PreLoad = {
   		// Sprite sheets
       game.load.spritesheet('imgLevel1Button', 'Images/level1.png', 130, 122.101 , 2);
       game.load.spritesheet('imgLevel2Button', 'Images/level2.png', 130, 122.101 , 2);
+      game.load.spritesheet('imgLevel3Button', 'Images/level1.png', 130, 122.101 , 2);
+      game.load.spritesheet('imgLevel4Button', 'Images/level2.png', 130, 122.101 , 2);
+      game.load.spritesheet('imgLevel5Button', 'Images/level1.png', 130, 122.101 , 2);
+      game.load.spritesheet('imgLevel6Button', 'Images/level2.png', 130, 122.101 , 2);
+      game.load.spritesheet('imgLevel7Button', 'Images/level1.png', 130, 122.101 , 2);
+      game.load.spritesheet('imgLevel8Button', 'Images/level2.png', 130, 122.101 , 2);
+      game.load.spritesheet('imgLevel9Button', 'Images/level1.png', 130, 122.101 , 2);
+      game.load.spritesheet('imgLevel10Button', 'Images/level2.png', 130, 122.101 , 2);
+      game.load.spritesheet('imgLevel11Button', 'Images/level1.png', 130, 122.101 , 2);
+      game.load.spritesheet('imgLevel12Button', 'Images/level2.png', 130, 122.101 , 2);
+
       game.load.spritesheet('imgHomeButton', 'Images/home.png', 130, 122.101 , 2);
       game.load.spritesheet('imgRestartButton', 'Images/restart.png', 130, 122.101 , 2);
       game.load.spritesheet('doctor', 'Images/tiles/Sheets/doctor_sheet.png', 64, 74, 4);
