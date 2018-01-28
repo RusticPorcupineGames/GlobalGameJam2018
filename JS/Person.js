@@ -34,6 +34,7 @@ var Person = function(game, x, image, patrol) {
 
     game.killCounter.update();
     game.moveCounter.resetMoves();
+
     person.tint =  0xb4ead1;
     mainPlayer = this;
     patients --;

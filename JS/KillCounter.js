@@ -8,6 +8,7 @@ var KillCounter = function(game){
   }
 
   this.update = function(){
-    countKills.text = 3;
+
+    countKills.text = _kills;
   }
 }
