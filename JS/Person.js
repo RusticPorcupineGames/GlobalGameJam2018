@@ -27,14 +27,18 @@ var Person = function(game, x, image, patrol) {
 
   },
 
+
+  this.infectAudio = function() {
+    this.music = game.add.audio('infect');
+    this.music.play();
+  },
+
   this.infect = function(){
     this.isMainPlayer = true;
 
-    // kill counter and resetMoves are not working when they are being called from here, anyone got any ideas??
-
+    this.infectAudio();
     game.killCounter.update();
     game.moveCounter.resetMoves();
-
     person.tint =  0xb4ead1;
     mainPlayer = this;
     patients --;
@@ -63,11 +67,10 @@ var Person = function(game, x, image, patrol) {
           if(infected){
               this.die(person);
           }
-
           return;
         }
       }
-    
+
     }else{
 
 
@@ -122,8 +125,19 @@ var Person = function(game, x, image, patrol) {
   },
 
   this.checkCanWalk = function(next){
-      // return isoGroup.children[next].isWalkable && !isoGroup.children[next].hasAHuman;
-      return isoGroup.children[next].isWalkable;
+
+      //return isoGroup.children[next].isWalkable;// && !isoGroup.children[next].hasAHuman;
+      if(this.isMainPlayer){
+        if (isoGroup.children[next].isWalkable){
+          return true;
+        }
+        return false;
+      }
+      if (!isoGroup.children[next].hasAHuman && isoGroup.children[next].isWalkable){
+        return true;
+      }
+      return false;
+
   },
 
   this.goUp = function() {
