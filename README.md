@@ -21,14 +21,15 @@ You are an infection. Your mission, should you choose to accept it, is to infect
 Play Now!: 
 https://rusticporcupinegames.github.io/GlobalGameJam2018/
 
-.
-+-- Images
---   Contains all images
-+-- JS
---   Contains all source files
-+-- Logos
---   Contains the logos used for the web page
-+-- README.md
-+-- audio
---   Contains all audio files
-+-- index.html
+'''
+-├── Images
+ -│   Contains all images
+ -├── JS
+ -│   Contains all source files
+ -├── Logos
+ -│   Contains the logos used for the web page
+ -├── README.md
+ -├── audio
+ -│   Contains all audio files
+ -└── index.html
+ '''
