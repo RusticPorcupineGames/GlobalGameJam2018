@@ -67,7 +67,11 @@ var Person = function(game, x, image, patrol) {
           return;
         }
       }
-    }else {
+    }else if(isoGroup.children[next].hasAHuman) {
+      return;
+    }else{
+
+
         isoGroup.children[this.currentTile].hasAHuman = false;
         isoGroup.children[next].hasAHuman = true;
         this.currentTile = next;
@@ -96,7 +100,7 @@ var Person = function(game, x, image, patrol) {
       person.animations.play('right');
 
       var next = this.currentTile + 12;
-      if (isoGroup.children[next].isWalkable) {
+      if (this.checkCanWalk(next)) {
         this.doWalk(next);
         this.direction = 'r';
         return true;
@@ -109,7 +113,7 @@ var Person = function(game, x, image, patrol) {
     if (this.currentTile > 11) {
       person.animations.play('left');
       var next = this.currentTile - 12;
-      if (isoGroup.children[next].isWalkable) {
+      if (this.checkCanWalk(next)) {
         this.doWalk(next);
         this.direction = 'l';
         return true;
@@ -118,11 +122,15 @@ var Person = function(game, x, image, patrol) {
     return false;
   },
 
+  this.checkCanWalk = function(next){
+      return isoGroup.children[next].isWalkable && !isoGroup.children[next].hasAHuman;
+  },
+
   this.goUp = function() {
     if (this.currentTile % 12 != 0) {
       person.animations.play('up');
       var next = this.currentTile - 1;
-      if (isoGroup.children[next].isWalkable) {
+      if (this.checkCanWalk(next)) {
         this.doWalk(next);
         this.direction = 'u';
         return true;
@@ -135,7 +143,7 @@ var Person = function(game, x, image, patrol) {
     if (this.currentTile % 12 != 11) {
       person.animations.play('down');
       var next = this.currentTile + 1;
-      if (isoGroup.children[next].isWalkable) {
+      if (this.checkCanWalk(next)) {
         this.doWalk(next);
         this.direction = 'd';
         return true;

@@ -14,9 +14,7 @@ var FailScreen = {
           case 'doctor':
               endText = "You have been healed by the doctor!";
               break;
-
-
-        }
+      }
 
 
       game.add.text(300, 200, endText, style);
