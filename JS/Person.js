@@ -1,7 +1,9 @@
-var Person = function(game, x, image) {
+var Person = function(game, x, image, patrol) {
 
   this.isMainPlayer = false;
   this.currentTile = x;
+  this.patrol = patrol;
+  this.direction = 'd';
   this.oldTween;
   var myTilePosition = isoGroup.children[x]._isoPosition;
   isoGroup.children[x].hasAHuman = true;
@@ -43,7 +45,7 @@ var Person = function(game, x, image) {
     this.walkingAudio();
 
     //switch control to a new human instead of working
-    if (isoGroup.children[next].hasAHuman) {
+    if (isoGroup.children[next].hasAHuman && this.isMainPlayer) {
 
         isoGroup.children[this.currentTile].hasAHuman = false;
 
@@ -73,12 +75,9 @@ var Person = function(game, x, image) {
         if (this.oldTween != undefined && this.oldTween.isRunning) {
             this.oldTween.chain(tween);
         }
-
         this.oldTween = tween;
         tween.start();
     }
-
-
   },
 
   this.goRight = function() {
@@ -86,66 +85,94 @@ var Person = function(game, x, image) {
       person.animations.play('right');
 
       var next = this.currentTile + 12;
-      if (isoGroup.children[next].isWalkable && this.currentTile < 132) {
+      if (isoGroup.children[next].isWalkable) {
         this.doWalk(next);
+        this.direction = 'r';
+        return true;
       }
     }
+    return false;
   },
 
   this.goLeft = function() {
     if (this.currentTile > 11) {
       person.animations.play('left');
       var next = this.currentTile - 12;
-      if (isoGroup.children[next].isWalkable && this.currentTile > 11) {
+      if (isoGroup.children[next].isWalkable) {
         this.doWalk(next);
+        this.direction = 'l';
+        return true;
       }
     }
+    return false;
   },
 
   this.goUp = function() {
     if (this.currentTile % 12 != 0) {
       person.animations.play('up');
       var next = this.currentTile - 1;
-      if (isoGroup.children[next].isWalkable && this.currentTile % 12 != 0) {
+      if (isoGroup.children[next].isWalkable) {
         this.doWalk(next);
+        this.direction = 'u';
+        return true;
       }
     }
+    return false;
   },
 
   this.goDown = function() {
     if (this.currentTile % 12 != 11) {
       person.animations.play('down');
       var next = this.currentTile + 1;
-      if (isoGroup.children[next].isWalkable && this.currentTile % 12 != 11) {
+      if (isoGroup.children[next].isWalkable) {
         this.doWalk(next);
+        this.direction = 'd';
+        return true;
       }
     }
+    return false;
   },
-
-
 
   this.movePlayer = function(direction) {
     switch (direction) {
       case 'u':
-        this.goUp();
-        break;
+        return this.goUp();
       case 'd':
-        this.goDown();
-        break;
+        return this.goDown();
       case 'l':
-        this.goLeft();
-        break;
+        return this.goLeft();
       case 'r':
-        this.goRight();
-        break;
+        return this.goRight();
     }
-
     return
   }
 
+  this.pathfind = function(){
+    if (this.isMainPlayer) return;
 
+    switch(this.patrol){
+      case 'line':
+          if (!this.movePlayer(this.direction)) {
+            debugger;
+            this.movePlayer(this.getOppositeDirection(this.direction));
+          }
+          break;
+      case 'none':
+      default:
+          break;
+    }
+  }
 
+  this.getOppositeDirection = function(){
+    switch(this.direction){
+      case 'u':
+        return 'd';
+      case 'd':
+        return 'u';
+      case 'l':
+        return 'r';
+      case 'r':
+        return 'l';
+    }
+  }
 }
-
-
-

@@ -1,9 +1,10 @@
-var Patient = function(game,  x, image) {
-    var something = new Person(game,  x, image);
+var Patient = function(game,  x, image, patrol) {
+    var something = new Person(game,  x, image, patrol);
     var apple = something.movePlayer;
     something.movePlayer = function (direction) {
-        game.moveCounter.useMove();
-        apple.call(this, direction);
+        if (this.isMainPlayer)
+          game.moveCounter.useMove();
+        return apple.call(this, direction);
     };
 
     var d = something.die;
@@ -34,11 +35,3 @@ var Patient = function(game,  x, image) {
 
     return something;
 }
-
-
-
-
-
-
-
-

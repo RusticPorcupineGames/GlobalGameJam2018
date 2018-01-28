@@ -1,5 +1,5 @@
-var Germ = function(game,  x, image) {
-    var something = new Person(game,  x, image);
+var Germ = function(game,  x, image, patrol) {
+    var something = new Person(game,  x, image, patrol);
     var apple = something.die;
     something.die = function (p) {
         apple.call(this, p);
@@ -10,5 +10,3 @@ var Germ = function(game,  x, image) {
 
     return something;
 }
-
-
