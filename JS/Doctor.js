@@ -1,54 +1,64 @@
 var Doctor = function(game,  x, image, patrol) {
     var something = new Person(game, x, image, patrol);
 
+    var doTint = function (t, setIt) {
+        if(t > -1 && t < isoGroup.children.length &&  isoGroup.children[t].isWalkable){
+            if(setIt){
+                isoGroup.children[t].tint =  0xe06773;
+                isoGroup.children[t].willHealYou = true;
+            } else{
+                isoGroup.children[t].tint = 0xffffff;
+                isoGroup.children[t].willHealYou = false;
+            }
+        }
+    }
 
 
-    // this.colorInFront = function (pos) {
-    //     var front = pos + 1;
-    //     console.log(front);
-    //
-    //     isoGroup.children[front].tint =  0xe06773;
-    // };
-    // // isoGroup.children[5].tint =  0xe06773;
-    //
-    // console.log(this.currentTile)
-    // this.colorInFront(this.currentTile);
+    var colorInFront = function (setIt) {
+        switch(something.direction){
+            case 'd':
+                doTint(something.currentTile + 1, setIt);
+                doTint(something.currentTile + 13, setIt);
+                doTint(something.currentTile - 11, setIt);
+                break;
+            case 'u':
+                doTint(something.currentTile - 1, setIt);
+                doTint(something.currentTile - 13, setIt);
+                doTint(something.currentTile + 11, setIt);
+                break;
+            case 'l':
+                doTint(something.currentTile - 12, setIt);
+                doTint(something.currentTile - 13, setIt);
+                doTint(something.currentTile - 11, setIt);
+                break;
+            case 'r':
+                doTint(something.currentTile + 12, setIt);
+                doTint(something.currentTile + 13, setIt);
+                doTint(something.currentTile + 11, setIt);
+                break;
+
+        }
+
+    }
+
+    colorInFront(true);
 
     var move = something.movePlayer;
     something.movePlayer = function (direction) {
 
-        //remove red tiles
+        colorInFront(false);
 
-        return move.call(this, direction);
+        var r = move.call(this, direction);
 
+        colorInFront(true);
 
+        return r;
 
-        //add red tiles in front
-
-        isoGroup.children[this.currentTile + 1].tint =  0xDCFBE6;
-
-
-
-
-    },
-
-
-    // this.colorInFront = function(){
-    //     var front = this.currentTile + 1;
-    //
-    //
-    //     isoGroup.children[front].tint =  0xe06773;
-    // },
-
-
+    }
 
     something.infect = function () {
         return false;
     };
-
-
-
-
 
     return something;
 }
