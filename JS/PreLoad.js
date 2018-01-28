@@ -1,3 +1,4 @@
+
 var PreLoad = {
     preload : function() {
 
@@ -15,6 +16,9 @@ var PreLoad = {
   		//	as the files below are loaded in.
   		this.load.setPreloadSprite(this.preloadBar);
 
+
+    game.load.script('filter-vignette', './JS/Vignette.js');
+    game.load.script('filter-filmgrain', './JS/FilmGrain.js');
 
   		/** GAME ASSETS **/
   		// Large BG images
