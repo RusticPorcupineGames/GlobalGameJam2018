@@ -52,7 +52,49 @@ var Person = function(game, x, image, patrol) {
   },
 
 
+  this.heal = function(callback){
+
+      if(game.Healed) return;
+      game.Healed = true;
+
+        var j = this.currentTile;
+
+      var p =isoGroup.children[j];
+
+
+      var tween = game.add.tween(p);
+      tween.to({
+              alpha: 0
+          },
+          10,
+          Phaser.Easing.Linear.none, false);
+
+      var tween2 = game.add.tween(person);
+      tween2.to({
+              isoZ: -150
+          },
+          2000,
+          Phaser.Easing.Linear.none, false);
+
+     tween.start();
+     tween2.start();
+
+     tween2.onComplete.add(
+         function(){
+             game.Healed2 = true;
+
+         });
+
+       tween.chain(tween2);
+
+
+
+  },
+
   this.doWalk = function(next) {
+
+    if(game.Healed) return;
+
     var nextTilePosition = isoGroup.children[next]._isoPosition;
     this.walkingAudio();
 

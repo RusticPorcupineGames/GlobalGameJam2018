@@ -53,8 +53,8 @@ var PreLoad = {
 
       game.load.spritesheet('nextLevelBtn', 'Images/nextlevel.png', 130, 122.101 , 2);
 
-      game.load.spritesheet('imgHomeButton', 'Images/home.png', 130, 122.101 , 2);
-      game.load.spritesheet('imgRestartButton', 'Images/restart.png', 130, 122.101 , 2);
+      game.load.spritesheet('imgHomeButton', 'Images/home.png', 130.5, 122.171, 2);
+      game.load.spritesheet('imgRestartButton', 'Images/restart.png', 130, 121.581, 2);
       game.load.spritesheet('doctor', 'Images/tiles/Sheets/doctor_sheet.png', 64, 74, 4);
       game.load.spritesheet('germ', 'Images/tiles/Sheets/germ_sheet.png', 64, 74, 4);
       game.load.spritesheet('patient1', 'Images/tiles/Sheets/patient_blonde_sheet.png', 64, 74, 4);
