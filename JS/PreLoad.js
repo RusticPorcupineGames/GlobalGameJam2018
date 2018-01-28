@@ -19,6 +19,7 @@ var PreLoad = {
   		/** GAME ASSETS **/
   		// Large BG images
       game.load.image('backgroundimg', 'Images/backgroundimg.png');
+      game.load.image('menubackgroundimg', 'Images/blur-hospital.jpg');
 
 
   		// Images
@@ -58,14 +59,20 @@ var PreLoad = {
 
       //furniture
       game.load.image('drawersSE', 'Images/furniture/drawersSE.png');
+      game.load.image('b', 'Images/furniture/bed_SE.png');
+      game.load.image('d', 'Images/furniture/bedCurtain_SE.png');
 
       //walls
+      game.load.image('tilepurpledoorNWwallLHS', 'Images/tiles/tile_purpledoorNWwallLHS.png');
+      game.load.image('tilepurpledoorNWwallRHS', 'Images/tiles/tile_purpledoorNWwallRHS.png');
+      game.load.image("tilepurpledoorNW", 'Images/tiles/tile_purpledoorNW.png');
       game.load.image('wallSW', 'Images/tiles/wallSW.png');
 
       //audio
       game.load.audio('menuScreenMusic', 'audio/intro.mp3');
       game.load.audio('step1',['audio/Step1.mp3','audio/Step1.ogg']);
       game.load.audio('step2',['audio/Step2.mp3','audio/Step2.ogg']);
+      game.load.audio('infect','audio/Infect.mp3')
     },
 
     create: function () {

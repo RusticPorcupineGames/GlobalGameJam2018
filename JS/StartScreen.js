@@ -5,6 +5,8 @@ var StartScreen = {
 
     create: function () {
 
+    this.bgImg = game.add.sprite(0, 0, 'menubackgroundimg');
+    //this.bgImg.anchor.setTo(0.5,0.5);
     this.logo = game.add.sprite(game.world.centerX, 150, 'logo');
     this.logo.anchor.setTo(0.5,0.5);
     //https://dzone.com/articles/why-does-javascript-loop-only-use-last-value
