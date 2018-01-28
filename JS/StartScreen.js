@@ -1,5 +1,7 @@
 
 
+var FILTER_VIGNETTE = 0;
+var FILTER_FILMGRAIN = 1;
 var StartScreen = {
     preload : function() {},
 
@@ -11,6 +13,19 @@ var StartScreen = {
     this.logo.anchor.setTo(0.5,0.5);
     //https://dzone.com/articles/why-does-javascript-loop-only-use-last-value
     var totalLevels = 6;
+    
+    this.filter= []
+    this.filter[FILTER_VIGNETTE] = game.add.filter('Vignette');
+    this.filter[FILTER_VIGNETTE].size = 0.3;
+    this.filter[FILTER_VIGNETTE].amount = 0.5;
+    this.filter[FILTER_VIGNETTE].alpha = 1.0;
+
+    this.filter[FILTER_FILMGRAIN] = game.add.filter('FilmGrain');
+    this.filter[FILTER_FILMGRAIN].color = 0.6;
+    this.filter[FILTER_FILMGRAIN].amount = 0.04;
+    this.filter[FILTER_FILMGRAIN].luminance = 0.8;
+
+    game.stage.filters = [this.filter[FILTER_FILMGRAIN], this.filter[FILTER_VIGNETTE]];
 
     for (var level = 1; level < (totalLevels+1); level++)
     {
