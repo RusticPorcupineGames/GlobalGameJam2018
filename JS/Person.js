@@ -29,6 +29,7 @@ var Person = function(game, x, image, patrol) {
 
   this.infect = function(){
     this.isMainPlayer = true;
+    game.killCounter.update();
     person.tint =  0xb4ead1;
     mainPlayer = this;
     game.moveCounter.resetMoves();
