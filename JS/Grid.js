@@ -16,8 +16,6 @@ var Grid = function (game) {
 
       switch (this.grid[i][j]) {
         case 'drawersSE':
-          yax = 52; //x axis the y axis
-          break;
         case 'tilepurpledoorNW':
         case 'tilepurpledoorNWwallLHS':
         case 'tilepurpledoorNWwallRHS':

@@ -2,7 +2,7 @@ var EndScreen = {
     preload : function() {},
     create : function() {
         var style = { font: "32px Arial", fill: "#ffffff", align: "center" };
-        game.add.text(300, 200, "Congradulations. You've won the level!", style);
+        game.add.text(300, 200, "Congratulations. You've won the level!", style);
         game.add.text(300,250, "Wooohooooo", style);
 
         var nextLevel = game.levelSelected +1;
