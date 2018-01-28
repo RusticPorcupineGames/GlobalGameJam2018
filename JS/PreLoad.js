@@ -60,6 +60,9 @@ var PreLoad = {
       game.load.image('drawersSE', 'Images/furniture/drawersSE.png');
 
       //walls
+      game.load.image('tilepurpledoorNWwallLHS', 'Images/tiles/tile_purpledoorNWwallLHS.png');
+      game.load.image('tilepurpledoorNWwallRHS', 'Images/tiles/tile_purpledoorNWwallRHS.png');
+      game.load.image("tilepurpledoorNW", 'Images/tiles/tile_purpledoorNW.png');
       game.load.image('wallSW', 'Images/tiles/wallSW.png');
 
       //audio

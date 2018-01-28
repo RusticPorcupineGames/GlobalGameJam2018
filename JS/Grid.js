@@ -18,6 +18,10 @@ var Grid = function(game) {
         case 'drawersSE':
           yax = 52; //x axis the y axis
           break;
+        case 'tilepurpledoorNW':
+        case 'tilepurpledoorNWwallLHS':
+        case 'tilepurpledoorNWwallRHS':
+          yax = 74;
         default:
       }
 
