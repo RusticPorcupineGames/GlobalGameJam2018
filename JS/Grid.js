@@ -41,6 +41,7 @@ var Grid = function (game) {
         case 'tilepurpledoorNWwallRHS':
         case 'b':
         case 'd':
+        case 'e':
           tile.isWalkable = false;
           break;
         default:
