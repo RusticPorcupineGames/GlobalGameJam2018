@@ -50,7 +50,7 @@ function getLevel(number) {
     case 4:
       return [
         ['p', 'p', 'p', 'p', 'e', 'e', 'e', 'e', 'p', 'p', 'p', 'p'],
-        ['p', 'c', 'c', 'p', 'e', 'e', 'e', 'e', 'p', 'c', 'c', 'p'],
+        ['tilepurpleemergencydoorSW', 'c', 'c', 'p', 'e', 'e', 'e', 'e', 'p', 'c', 'c', 'p'],
         ['p', 'c', 'c', 'p', 'e', 'e', 'e', 'e', 'p', 'c', 'c', 'p'],
         ['p', 'c', 'p', 'p', 'p', 'tilepurpledoorNWwallRHS', 'tilepurpledoorNW', 'tilepurpledoorNWwallLHS', 'p', 'p', 'c', 'p'],
         ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
