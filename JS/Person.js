@@ -39,7 +39,7 @@ var Person = function(game, x, image, patrol) {
     this.infectAudio();
     game.killCounter.update();
     game.moveCounter.resetMoves();
-    person.tint =  0xb4ead1;
+    person.tint =  0x009933;
     mainPlayer = this;
     patients --;
     return true;
