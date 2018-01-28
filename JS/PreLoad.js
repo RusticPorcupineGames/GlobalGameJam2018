@@ -71,6 +71,7 @@ var PreLoad = {
       game.load.audio('menuScreenMusic', 'audio/intro.mp3');
       game.load.audio('step1',['audio/Step1.mp3','audio/Step1.ogg']);
       game.load.audio('step2',['audio/Step2.mp3','audio/Step2.ogg']);
+      game.load.audio('infect','audio/Infect.mp3')
     },
 
     create: function () {
