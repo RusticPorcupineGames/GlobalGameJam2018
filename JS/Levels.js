@@ -52,22 +52,22 @@ function getPeopleLevel(number){
   switch(number){
     case 1:
       return [
-          [61,'germ', 'germ'],
-          [67,'patient2','patient'],
-          [70, 'patient1','patient']];
+          [61,'germ', 'germ','none'],
+          [67,'doctor','patient','none'],
+          [70, 'doctor','patient','none']];
       break;
     case 2:
       return [
-          [68,'germ', 'germ'],
-          [65,'doctor','patient'],
-          [63,'doctor','patient']];
+          [68,'germ', 'germ','none'],
+          [65,'doctor','patient','line'],
+          [63,'doctor','patient','none']];
       break;
     case 3:
         return [
-            [10,'germ', 'germ'],
-            [0,'doctor','patient'],
-            [5, 'patient2','patient'],
-            [8, 'patient1','patient']];
+            [10,'germ', 'germ','none'],
+            [0,'doctor','patient','none'],
+            [5, 'patient2','patient','none'],
+            [8, 'patient1','patient','none']];
         break;
   }
 }

@@ -59,10 +59,17 @@ Game.Boot.prototype =
     }
     if (game.moveCounter.update() == 0){
           this.state.start('FailScreen');
-    };
+    }
+
 
     if(patients == 1){
         this.state.start('EndScreen');
+    }
+
+    if (game.moveCounter.checkForTurn()){
+      for(var i = 0; i < people.length; i++){
+          people[i].pathfind();
+      }
     }
 
   },
@@ -126,16 +133,16 @@ Game.Boot.prototype =
 
         switch(peopleArray[i][2]){
             case 'germ':
-                p = new Germ(game, peopleArray[i][0], peopleArray[i][1]);
+                p = new Germ(game, peopleArray[i][0], peopleArray[i][1], peopleArray[i][3]);
                 break;
             case 'patient':
-                p = new Patient(game, peopleArray[i][0], peopleArray[i][1]);
+                p = new Patient(game, peopleArray[i][0], peopleArray[i][1], peopleArray[i][3]);
                 break;
             case 'doctor':
                 p = new Doctor(game, peopleArray[i][0], peopleArray[i][1]);
                 break;
             default:
-                p = new Person(game, peopleArray[i][0], peopleArray[i][1]);
+                p = new Person(game, peopleArray[i][0], peopleArray[i][1], peopleArray[i][3]);
                 break;
         }
 
