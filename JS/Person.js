@@ -122,7 +122,8 @@ var Person = function(game, x, image, patrol) {
   },
 
   this.checkCanWalk = function(next){
-      return isoGroup.children[next].isWalkable && !isoGroup.children[next].hasAHuman;
+      // return isoGroup.children[next].isWalkable && !isoGroup.children[next].hasAHuman;
+      return isoGroup.children[next].isWalkable;
   },
 
   this.goUp = function() {
