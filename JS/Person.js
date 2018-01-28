@@ -67,8 +67,7 @@ var Person = function(game, x, image, patrol) {
           return;
         }
       }
-    }else if(isoGroup.children[next].hasAHuman) {
-      return;
+    
     }else{
 
 
