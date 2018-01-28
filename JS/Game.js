@@ -27,6 +27,9 @@ Game.Boot.prototype =
   create: function () {
     people = [];
     patients = 0;
+      game.Healed = false;
+      game.Healed2 = false;
+
     this.grid = new Grid(game);
 
     game.moveCounter = new MoveCounter(game);
@@ -51,7 +54,11 @@ Game.Boot.prototype =
   },
 
   update: function () {
-    for(var i = 0; i < people.length; i++){
+     if(game.Healed2){
+         this.state.start('FailScreen');
+     }
+
+      for(var i = 0; i < people.length; i++){
       if (!people[i].isMainPlayer)
         people[i].update();
     } // wrong place - this calls sort - now player moves!!
@@ -77,7 +84,15 @@ Game.Boot.prototype =
 
     if(isoGroup.children[mainPlayer.currentTile].willHealYou){
         game.failReason = 'doctor';
-        this.state.start('FailScreen');
+
+if(!game.Healed){
+  //
+    mainPlayer.heal(this);
+}
+
+
+
+        //this.state.start('FailScreen');
     }
 
   },
