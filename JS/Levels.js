@@ -227,8 +227,8 @@ function getPeopleLevel(number) {
         [64, 'doctor', 'doctor', 'line'],
         [99, 'doctor', 'doctor', 'line'],
         [62, 'patient2', 'patient', 'line'],
-        [49, 'patient2', 'patient', 'none'],
-        [89, 'patient2', 'patient', 'none']];
+        [49, 'patient1', 'patient', 'none'],
+        [89, 'patient1', 'patient', 'none']];
       break;
     case 6:
     case 7:
