@@ -32,6 +32,9 @@ var Grid = function(game) {
       switch (this.grid[i][j]) {
         case 'p':
         case 'drawersSE':
+        case 'tilepurpledoorNW':
+        case 'tilepurpledoorNWwallLHS':
+        case 'tilepurpledoorNWwallRHS':
           tile.isWalkable = false;
           break;
         default:
