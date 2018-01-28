@@ -1,5 +1,5 @@
 var MoveCounter = function(game){
-  var _initial = 25;
+  var _initial = 9;
   var _moves = _initial;
   var _turnFlag = false;
 
