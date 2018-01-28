@@ -61,7 +61,7 @@ var PreLoad = {
       game.load.spritesheet('patient2', 'Images/tiles/Sheets/patient_brown_sheet.png', 64, 74, 4);
 
       //furniture
-      game.load.image('drawersSE', 'Images/tiles/bodybag.png');
+      game.load.image('drawersSE', 'Images/tiles/bodyBag.png');
       game.load.image('b', 'Images/furniture/bed_SE.png');
       game.load.image('d', 'Images/furniture/bedcurtain_SE.png');
 
