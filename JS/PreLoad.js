@@ -52,7 +52,7 @@ var PreLoad = {
       game.load.spritesheet('imgLevel12Button', 'Images/level12.png', 130, 122, 2);
 
       game.load.spritesheet('nextLevelBtn', 'Images/nextlevel.png', 130, 121.581, 2);
-      game.load.spritesheet('imgHomeButton', 'Images/home.png', 130.5, 122.171, 2);
+      game.load.spritesheet('imgHomeButton', 'Images/Home.png', 130.5, 122.171, 2);
       game.load.spritesheet('imgRestartButton', 'Images/restart.png', 130, 121.581, 2);
       game.load.spritesheet('doctor', 'Images/tiles/Sheets/doctor_sheet.png', 64, 74, 4);
       game.load.spritesheet('germ', 'Images/tiles/Sheets/germ_sheet.png', 64, 74, 4);
@@ -65,12 +65,13 @@ var PreLoad = {
       //furniture
       game.load.image('drawersSE', 'Images/furniture/drawersSE.png');
       game.load.image('b', 'Images/furniture/bed_SE.png');
-      game.load.image('d', 'Images/furniture/bedCurtain_SE.png');
+      game.load.image('d', 'Images/furniture/bedcurtain_SE.png');
 
       //walls
       game.load.image('tilepurpledoorNWwallLHS', 'Images/tiles/tile_purpledoorSEwallLHS.png');
       game.load.image('tilepurpledoorNWwallRHS', 'Images/tiles/tile_purpledoorSEwallRHS.png');
       game.load.image("tilepurpledoorNW", 'Images/tiles/tile_purpledoorSE.png');
+      game.load.image("tilepurpleemergencydoorSW", 'Images/tiles/tile_purpleemergencydoorSW.png');
       game.load.image('wallSW', 'Images/tiles/wallSW.png');
 
       //audio
