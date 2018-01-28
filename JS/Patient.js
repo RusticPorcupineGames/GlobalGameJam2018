@@ -12,6 +12,7 @@ var Patient = function(game,  x, image, patrol) {
     var d = something.die;
     something.die = function (p) {
 
+        var gravePosition = isoGroup.children[this.currentTile];
 
         var tween = game.add.tween(p);
         tween.to({
@@ -22,9 +23,10 @@ var Patient = function(game,  x, image, patrol) {
             Phaser.Easing.Linear.none, false);
         tween.start();
 
-        var grave =  game.add.isoSprite(p._isoPosition.x, p._isoPosition.y, 0, 'grave', 0, isoGroup);
+        var grave =  game.add.isoSprite(gravePosition._isoPosition.x, gravePosition._isoPosition.y, 0, 'grave', 0, isoGroup);
         grave.alpha = 0;
-        grave.anchor.setTo(-0.25, 0.4);
+       // grave.anchor.setTo(-0.25, 0.4);
+        grave.anchor.setTo(-0.1, 0.4);
         var tween1 = game.add.tween(grave);
         tween1.to(
             { alpha: 1 },
