@@ -44,7 +44,7 @@ var StartScreen = {
         var style = { font: "24px Arial", fill: "#55555", align: "center" };
        //game.add.text(200, 900, "Congratulations. You've won the level!", style);
 
-        game.add.text(450, 600, "WASD to move.    Avoid doctors.    Infect Patients.", style);
+        game.add.text((game.world.width/2), 600, "WASD to move.    Avoid doctors.    Infect Patients.", style).anchor.setTo(0.5,0.5);
     },
 
     startGame: function (level) {
