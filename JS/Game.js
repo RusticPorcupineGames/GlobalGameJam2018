@@ -23,6 +23,10 @@ Game.Boot.prototype =
     game.bgImg.tint = 0xfdfd96;
     //game.stage.backgroundColor = "#fdfd96";
     game.iso.anchor.setTo(0.466, 0.035);
+
+    game.time.desiredFps = 60;
+
+
   },
   create: function () {
     people = [];
