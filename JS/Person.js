@@ -63,11 +63,10 @@ var Person = function(game, x, image, patrol) {
           if(infected){
               this.die(person);
           }
-
           return;
         }
       }
-    
+
     }else{
 
 
@@ -122,7 +121,17 @@ var Person = function(game, x, image, patrol) {
   },
 
   this.checkCanWalk = function(next){
-      return isoGroup.children[next].isWalkable && !isoGroup.children[next].hasAHuman;
+      //return isoGroup.children[next].isWalkable;// && !isoGroup.children[next].hasAHuman;
+      if(this.isMainPlayer){
+        if (isoGroup.children[next].isWalkable){
+          return true;
+        }
+        return false;
+      }
+      if (!isoGroup.children[next].hasAHuman && isoGroup.children[next].isWalkable){
+        return true;
+      }
+      return false;
   },
 
   this.goUp = function() {

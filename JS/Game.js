@@ -52,8 +52,10 @@ Game.Boot.prototype =
 
   update: function () {
     for(var i = 0; i < people.length; i++){
+      if (!people[i].isMainPlayer)
         people[i].update();
-    }
+    } // wrong place - this calls sort - now player moves!!
+    mainPlayer.update();
 
     if (!mainPlayer.isGerm){
       if (game.moveCounter.update() == 0){
@@ -67,11 +69,11 @@ Game.Boot.prototype =
         this.state.start('EndScreen');
     }
 
-    if (game.moveCounter.checkForTurn()){
-      for(var i = 0; i < people.length; i++){
-          people[i].pathfind();
-      }
-    }
+    if (game.moveCounter.checkForTurn()){}
+    //   for(var i = 0; i < people.length; i++){
+    //       people[i].pathfind();
+    //   }
+    // }
 
     if(isoGroup.children[mainPlayer.currentTile].willHealYou){
         game.failReason = 'doctor';
@@ -100,34 +102,58 @@ Game.Boot.prototype =
     };
 
     wasd.w.onDown.add(function () {
+      for(var i = 0; i < people.length; i++){
+          people[i].pathfind();
+      }
         mainPlayer.movePlayer('u');
     });
 
     wasd.s.onDown.add(function () {
+      for(var i = 0; i < people.length; i++){
+          people[i].pathfind();
+      }
         mainPlayer.movePlayer('d');
     });
 
     wasd.a.onDown.add(function () {
+      for(var i = 0; i < people.length; i++){
+          people[i].pathfind();
+      }
         mainPlayer.movePlayer('l');
     });
 
     wasd.d.onDown.add(function () {
+      for(var i = 0; i < people.length; i++){
+          people[i].pathfind();
+      }
         mainPlayer.movePlayer('r');
     });
 
     wasd.up.onDown.add(function () {
+      for(var i = 0; i < people.length; i++){
+          people[i].pathfind();
+      }
         mainPlayer.movePlayer('u');
     });
 
     wasd.down.onDown.add(function () {
+      for(var i = 0; i < people.length; i++){
+          people[i].pathfind();
+      }
         mainPlayer.movePlayer('d');
     });
 
     wasd.left.onDown.add(function () {
+      for(var i = 0; i < people.length; i++){
+          people[i].pathfind();
+      }
       mainPlayer.movePlayer('l');
     });
 
     wasd.right.onDown.add(function () {
+      for(var i = 0; i < people.length; i++){
+          people[i].pathfind();
+      }
       mainPlayer.movePlayer('r');
     });
 
