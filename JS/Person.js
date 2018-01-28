@@ -85,7 +85,7 @@ var Person = function(game, x, image, patrol) {
 
          });
 
-     //  tween.chain(tween2);
+       tween.chain(tween2);
 
 
 

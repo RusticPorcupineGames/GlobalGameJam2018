@@ -86,13 +86,10 @@ Game.Boot.prototype =
         game.failReason = 'doctor';
 
 if(!game.Healed){
-  //
+
     mainPlayer.heal(this);
 }
 
-
-
-        //this.state.start('FailScreen');
     }
 
   },
