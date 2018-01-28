@@ -2,6 +2,7 @@ var MoveCounter = function(game){
   var _initial = 9;
   var _moves = _initial;
   var _turnFlag = false;
+  this.resetFlag = false;
 
   var title = game.add.text(1175, 50, 'Moves:', { fontSize: '16px', fill: '#000' });
   var countText = game.add.text(1175, 64, _moves, { fontSize: '90px', fill: '#000' });
@@ -27,6 +28,7 @@ var MoveCounter = function(game){
     _moves = _initial;
     countText.text =_moves;
     angleMax=0;
+
   }
 
   this.checkForTurn = function(){
@@ -50,6 +52,7 @@ var MoveCounter = function(game){
       countText.text = --_moves;
       angleMax = 0;
       _turnFlag = true;
+      this.resetFlag =true;
     };
     return _moves;
   }
