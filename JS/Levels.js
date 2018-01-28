@@ -1,3 +1,5 @@
+var numberOflevels = 12;
+
 function getLevel(number){
   switch(number){
     case 1:

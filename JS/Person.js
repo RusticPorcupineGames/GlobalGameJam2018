@@ -57,6 +57,13 @@ var Person = function(game, x, image, patrol) {
     this.walkingAudio();
 
     //switch control to a new human instead of working
+
+    // if(isoGroup.children[mainPlayer.currentTile].willHealYou){
+    //     game.state.start('FailScreen');
+    //     return;
+    // }
+
+
     if (isoGroup.children[next].hasAHuman && this.isMainPlayer) {
 
         isoGroup.children[this.currentTile].hasAHuman = false;
@@ -125,6 +132,7 @@ var Person = function(game, x, image, patrol) {
   },
 
   this.checkCanWalk = function(next){
+
       //return isoGroup.children[next].isWalkable;// && !isoGroup.children[next].hasAHuman;
       if(this.isMainPlayer){
         if (isoGroup.children[next].isWalkable){
@@ -136,6 +144,7 @@ var Person = function(game, x, image, patrol) {
         return true;
       }
       return false;
+
   },
 
   this.goUp = function() {

@@ -20,21 +20,29 @@ var Doctor = function(game,  x, image, patrol) {
                 doTint(something.currentTile + 1, setIt);
                 doTint(something.currentTile + 13, setIt);
                 doTint(something.currentTile - 11, setIt);
+                doTint(something.currentTile - 12, setIt);
+                doTint(something.currentTile + 12, setIt);
                 break;
             case 'u':
                 doTint(something.currentTile - 1, setIt);
                 doTint(something.currentTile - 13, setIt);
                 doTint(something.currentTile + 11, setIt);
+                doTint(something.currentTile - 12, setIt);
+                doTint(something.currentTile + 12, setIt);
                 break;
             case 'l':
                 doTint(something.currentTile - 12, setIt);
                 doTint(something.currentTile - 13, setIt);
                 doTint(something.currentTile - 11, setIt);
+                doTint(something.currentTile - 1, setIt);
+                doTint(something.currentTile + 1, setIt);
                 break;
             case 'r':
                 doTint(something.currentTile + 12, setIt);
                 doTint(something.currentTile + 13, setIt);
                 doTint(something.currentTile + 11, setIt);
+                doTint(something.currentTile - 1, setIt);
+                doTint(something.currentTile + 1, setIt);
                 break;
 
         }
