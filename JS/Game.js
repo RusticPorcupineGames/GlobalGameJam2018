@@ -76,7 +76,18 @@ Game.Boot.prototype =
         this.state.start('EndScreen');
     }
 
-    if (game.moveCounter.checkForTurn()){}
+    if (game.moveCounter.checkForTurn()){
+
+
+    }
+
+    if(game.moveCounter.resetFlag){
+        game.moveCounter.resetFlag =false;
+        for(var i = 0; i < people.length; i++){
+                  people[i].pathfind();
+              }
+    }
+
     //   for(var i = 0; i < people.length; i++){
     //       people[i].pathfind();
     //   }
