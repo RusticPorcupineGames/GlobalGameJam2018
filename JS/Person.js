@@ -32,6 +32,7 @@ var Person = function(game, x, image, patrol) {
     person.tint =  0xb4ead1;
     mainPlayer = this;
     game.moveCounter.resetMoves();
+    return true;
   },
 
 
@@ -52,8 +53,11 @@ var Person = function(game, x, image, patrol) {
 
       for (var i = 0; i < people.length; i++) {
         if (people[i].currentTile == next) {
-          people[i].infect(person);
-          this.die(person);
+          var infected = people[i].infect(person);
+          if(infected){
+              this.die(person);
+          }
+
           return;
         }
       }

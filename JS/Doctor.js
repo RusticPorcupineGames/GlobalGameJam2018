@@ -3,7 +3,6 @@ var Doctor = function(game,  x, image) {
 
     isoGroup.children[5].tint =  0xe06773;
 
-    console.log(isoGroup.children[5]);
 
     var move = something.movePlayer;
     something.movePlayer = function (direction) {
@@ -23,6 +22,11 @@ var Doctor = function(game,  x, image) {
 
     };
 
+
+    var infect = something.infect;
+    something.infect = function () {
+        return false;
+    };
 
 
     return something;
