@@ -23,6 +23,10 @@ Game.Boot.prototype =
     game.bgImg.tint = 0xfdfd96;
     //game.stage.backgroundColor = "#fdfd96";
     game.iso.anchor.setTo(0.466, 0.035);
+
+    game.time.desiredFps = 60;
+
+
   },
   create: function () {
     people = [];
@@ -34,8 +38,8 @@ Game.Boot.prototype =
 
     game.moveCounter = new MoveCounter(game);
     game.killCounter = new KillCounter(game);
-    this.homeButton = game.add.button(1100, 550, 'imgHomeButton', function(){ return this.goToHome();}, this, 1,0);
-    this.restartButton = game.add.button(200, 550, 'imgRestartButton', function(){ return this.restartLevel();}, this, 1,0);
+    this.homeButton = game.add.button(1050, 420, 'imgHomeButton2', function(){ return this.goToHome();}, this, 1,0);
+    this.restartButton = game.add.button(50, 450, 'imgRestartButton2', function(){ return this.restartLevel();}, this, 1,0);
 
     game.failReason = '';
 

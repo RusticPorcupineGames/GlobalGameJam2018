@@ -33,7 +33,8 @@ var PreLoad = {
       game.load.image('c', 'Images/tiles/tile_white.png');
       game.load.image('a', 'Images/greencurtain.png');
       game.load.image('grave', 'Images/furniture/grave.png');
-
+      game.load.image('imgHomeButton2', 'Images/home2.png');
+      game.load.image('imgRestartButton2', 'Images/restart2.png');
       //gamelogo
       game.load.image('logo','Images/hospitalbedlam.png');
 
