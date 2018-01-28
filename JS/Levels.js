@@ -79,18 +79,18 @@ function getLevel(number){
 
     case 6:
       return [
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'p', 'p', 'p', 'p', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'],
-        ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']];
+        ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'p', 'p', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'p', 'p', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'p', 'p', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'p', 'p', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'p'],
+        ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p']];
 
     case 7:
       return [
@@ -222,6 +222,15 @@ function getPeopleLevel(number){
         [125,'patient2','patient','none']];
     case 5:
     case 6:
+    return [
+        [13,'germ', 'germ','none'],
+        [37,'doctor','doctor','line'],
+        [63,'doctor','doctor','line'],
+        [78,'doctor','doctor','line'],
+        [104,'doctor','doctor','line'],
+        [33,'patient2','patient','none'],
+        [117,'patient2','patient','none'],
+        [125,'patient2','patient','none']];
     case 7:
     case 8:
     case 9:
