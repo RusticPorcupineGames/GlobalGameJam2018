@@ -1,3 +1,4 @@
+
 var PreLoad = {
     preload : function() {
 
@@ -15,6 +16,9 @@ var PreLoad = {
   		//	as the files below are loaded in.
   		this.load.setPreloadSprite(this.preloadBar);
 
+
+    game.load.script('filter-vignette', './JS/Vignette.js');
+    game.load.script('filter-filmgrain', './JS/FilmGrain.js');
 
   		/** GAME ASSETS **/
   		// Large BG images
@@ -34,18 +38,18 @@ var PreLoad = {
       game.load.image('logo','Images/hospitalbedlam.png');
 
       // Sprite sheets
-      game.load.spritesheet('imgLevel1Button', 'Images/level1.png', 130, 122.101 , 2);
-      game.load.spritesheet('imgLevel2Button', 'Images/level2.png', 130, 122.101 , 2);
-      game.load.spritesheet('imgLevel3Button', 'Images/level1.png', 130, 122.101 , 2);
-      game.load.spritesheet('imgLevel4Button', 'Images/level2.png', 130, 122.101 , 2);
-      game.load.spritesheet('imgLevel5Button', 'Images/level1.png', 130, 122.101 , 2);
-      game.load.spritesheet('imgLevel6Button', 'Images/level2.png', 130, 122.101 , 2);
-      game.load.spritesheet('imgLevel7Button', 'Images/level1.png', 130, 122.101 , 2);
-      game.load.spritesheet('imgLevel8Button', 'Images/level2.png', 130, 122.101 , 2);
-      game.load.spritesheet('imgLevel9Button', 'Images/level1.png', 130, 122.101 , 2);
-      game.load.spritesheet('imgLevel10Button', 'Images/level2.png', 130, 122.101 , 2);
-      game.load.spritesheet('imgLevel11Button', 'Images/level1.png', 130, 122.101 , 2);
-      game.load.spritesheet('imgLevel12Button', 'Images/level2.png', 130, 122.101 , 2);
+      game.load.spritesheet('imgLevel1Button', 'Images/level1.png', 130, 122, 2);
+      game.load.spritesheet('imgLevel2Button', 'Images/level2.png', 130, 122, 2);
+      game.load.spritesheet('imgLevel3Button', 'Images/level3.png', 130, 122, 2);
+      game.load.spritesheet('imgLevel4Button', 'Images/level4.png', 130, 122, 2);
+      game.load.spritesheet('imgLevel5Button', 'Images/level5.png', 130, 122, 2);
+      game.load.spritesheet('imgLevel6Button', 'Images/level6.png', 130, 122, 2);
+      game.load.spritesheet('imgLevel7Button', 'Images/level7.png', 130, 122, 2);
+      game.load.spritesheet('imgLevel8Button', 'Images/level8.png', 130, 122, 2);
+      game.load.spritesheet('imgLevel9Button', 'Images/level9.png', 130, 122, 2);
+      game.load.spritesheet('imgLevel10Button', 'Images/level10.png', 130, 122, 2);
+      game.load.spritesheet('imgLevel11Button', 'Images/level11.png', 130, 122, 2);
+      game.load.spritesheet('imgLevel12Button', 'Images/level12.png', 130, 122, 2);
 
       game.load.spritesheet('nextLevelBtn', 'Images/nextlevel.png', 130, 122.101 , 2);
 

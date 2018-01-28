@@ -57,6 +57,13 @@ var Person = function(game, x, image, patrol) {
     this.walkingAudio();
 
     //switch control to a new human instead of working
+
+    // if(isoGroup.children[mainPlayer.currentTile].willHealYou){
+    //     game.state.start('FailScreen');
+    //     return;
+    // }
+
+
     if (isoGroup.children[next].hasAHuman && this.isMainPlayer) {
 
         isoGroup.children[this.currentTile].hasAHuman = false;
