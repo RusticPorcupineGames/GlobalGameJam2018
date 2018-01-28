@@ -1,6 +1,6 @@
 var isoGroup = [];
 
-var Grid = function(game) {
+var Grid = function (game) {
   isoGroup = game.add.group();
   this.grid = getLevel(game.levelSelected);
 
@@ -22,6 +22,10 @@ var Grid = function(game) {
         case 'tilepurpledoorNWwallLHS':
         case 'tilepurpledoorNWwallRHS':
           yax = 74;
+          break;
+        case 'b':
+        case 'd':
+          yax = 30;
         default:
       }
 
@@ -35,6 +39,8 @@ var Grid = function(game) {
         case 'tilepurpledoorNW':
         case 'tilepurpledoorNWwallLHS':
         case 'tilepurpledoorNWwallRHS':
+        case 'b':
+        case 'd':
           tile.isWalkable = false;
           break;
         default:
@@ -48,14 +54,14 @@ var Grid = function(game) {
 
   // click event
   game.input.tapRate = 500;
-  game.input.onTap.add(function() {
-    isoGroup.forEach(function(tile) {
-      if (tile.isoBounds.containsXY(cursorPos.x, cursorPos.y)) {}
+  game.input.onTap.add(function () {
+    isoGroup.forEach(function (tile) {
+      if (tile.isoBounds.containsXY(cursorPos.x, cursorPos.y)) { }
     });
   }, this);
 
-  this.update = function() {
-    isoGroup.forEach(function(tile) {
+  this.update = function () {
+    isoGroup.forEach(function (tile) {
       //var inBounds = tile.isoBounds.containsXY(cursorPos.x, cursorPos.y);
       //game.add.tween(tile).to({ isoZ: 0 }, 200, Phaser.Easing.Quadratic.InOut, true);
     });
