@@ -11,7 +11,7 @@ var MoveCounter = function(game){
   var angleMax = 0;
 
   this.useMove = function(){
-    angleMax=0;
+     angleMax=0;
     countText.text =--_moves;
     _turnFlag = true;
   }
