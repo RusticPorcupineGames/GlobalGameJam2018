@@ -20,6 +20,8 @@ var PreLoad = {
   		// Large BG images
       game.load.image('backgroundimg', 'Images/backgroundimg.png');
 
+      game.load.image('logo','Images/hospitalbedlam.png');
+
   		// Images
       game.load.image('g', 'Images/tiles/grass.png');
       game.load.image('p', 'Images/tiles/tile_purple.png');

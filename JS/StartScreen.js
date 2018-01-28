@@ -5,6 +5,9 @@ var StartScreen = {
 
     create: function () {
 
+      this.logo = game.add.sprite(game.world.centerX, 100, 'logo');
+      this.logo.anchor.setTo(0.5,0.5);
+
     var totalLevels = 2;
 
   // TO DECLAN - function(){return this.startGame(level);} will take the value of level after
