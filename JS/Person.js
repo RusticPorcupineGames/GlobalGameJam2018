@@ -32,6 +32,7 @@ var Person = function(game, x, image, patrol) {
     person.tint =  0xb4ead1;
     mainPlayer = this;
     game.moveCounter.resetMoves();
+    patients --;
     return true;
   },
 

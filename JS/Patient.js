@@ -11,7 +11,7 @@ var Patient = function(game,  x, image, patrol) {
 
     var d = something.die;
     something.die = function (p) {
-        patients --;
+
 
         var tween = game.add.tween(p);
         tween.to({

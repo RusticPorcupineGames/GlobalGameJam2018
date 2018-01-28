@@ -1,8 +1,18 @@
 var Doctor = function(game,  x, image) {
     var something = new Person(game, x, image);
 
-    isoGroup.children[5].tint =  0xe06773;
 
+
+    // this.colorInFront = function (pos) {
+    //     var front = pos + 1;
+    //     console.log(front);
+    //
+    //     isoGroup.children[front].tint =  0xe06773;
+    // };
+    // // isoGroup.children[5].tint =  0xe06773;
+    //
+    // console.log(this.currentTile)
+    // this.colorInFront(this.currentTile);
 
     var move = something.movePlayer;
     something.movePlayer = function (direction) {
@@ -20,13 +30,24 @@ var Doctor = function(game,  x, image) {
 
 
 
-    };
+    },
 
 
-    var infect = something.infect;
+    // this.colorInFront = function(){
+    //     var front = this.currentTile + 1;
+    //
+    //
+    //     isoGroup.children[front].tint =  0xe06773;
+    // },
+
+
+
     something.infect = function () {
         return false;
     };
+
+
+
 
 
     return something;
