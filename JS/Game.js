@@ -139,7 +139,7 @@ Game.Boot.prototype =
                 p = new Patient(game, peopleArray[i][0], peopleArray[i][1], peopleArray[i][3]);
                 break;
             case 'doctor':
-                p = new Doctor(game, peopleArray[i][0], peopleArray[i][1]);
+                p = new Doctor(game, peopleArray[i][0], peopleArray[i][1], peopleArray[i][3]);
                 break;
             default:
                 p = new Person(game, peopleArray[i][0], peopleArray[i][1], peopleArray[i][3]);

@@ -1,5 +1,5 @@
-var Doctor = function(game,  x, image) {
-    var something = new Person(game, x, image);
+var Doctor = function(game,  x, image, patrol) {
+    var something = new Person(game, x, image, patrol);
 
     isoGroup.children[5].tint =  0xe06773;
 
@@ -9,7 +9,7 @@ var Doctor = function(game,  x, image) {
 
         //remove red tiles
 
-        move.call(this, direction);
+        return move.call(this, direction);
 
 
 
