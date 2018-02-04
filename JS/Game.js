@@ -184,6 +184,42 @@ if(!game.Healed){
       mainPlayer.movePlayer('r');
     });
 
+    game.input.onTap.add(function () {
+        game.iso.unproject(game.input.activePointer.position, cursorPos); // bug fix to ensure mobile devices always update cursor position
+
+        for(var index = 0; index < isoGroup.length; index++){
+            if (isoGroup.children[index].isoBounds.containsXY(cursorPos.x, cursorPos.y)){
+                if(mainPlayer.checkCanWalk(index)){
+                    if(index == mainPlayer.getUpTileIndex()){
+                      for(var i = 0; i < people.length; i++){
+                          people[i].pathfind();
+                      }
+                        mainPlayer.movePlayer('u');
+                    }
+                    else if (index == mainPlayer.getDownTileIndex()) {
+                      for(var i = 0; i < people.length; i++){
+                          people[i].pathfind();
+                      }
+                        mainPlayer.movePlayer('d');
+                    }
+                    else if (index == mainPlayer.getLeftTileIndex()) {
+                      for(var i = 0; i < people.length; i++){
+                          people[i].pathfind();
+                      }
+                      mainPlayer.movePlayer('l');
+                    }
+                    else if (index == mainPlayer.getRightTileIndex()) {
+                      for(var i = 0; i < people.length; i++){
+                          people[i].pathfind();
+                      }
+                      mainPlayer.movePlayer('r');
+                    }
+                }
+            }
+        }
+    }, this);
+
+
     var peopleArray = getPeopleLevel(game.levelSelected);
 
     for(var i = 0; i < peopleArray.length; i++){

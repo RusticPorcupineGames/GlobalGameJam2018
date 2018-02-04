@@ -2,6 +2,23 @@ var Person = function(game, x, image, patrol) {
 
   this.isMainPlayer = false;
   this.currentTile = x;
+  this.getUpTileIndex = function(){
+    var value = this.currentTile - 1;
+    return value >= 0 && value < 144 ? value : -1;
+  }
+  this.getDownTileIndex = function(){
+    var value = this.currentTile + 1;
+    return value >= 0 && value < 144 ? value : -1;
+  }
+  this.getLeftTileIndex = function(){
+    var value = this.currentTile - 12;
+    return value >= 0 && value < 144 ? value : -1;
+  }
+  this.getRightTileIndex = function(){
+    var value = this.currentTile + 12;
+    return value >= 0 && value < 144 ? value : -1;
+  }
+
   this.patrol = patrol;
   this.direction = 'd';
   this.oldTween;
@@ -41,7 +58,7 @@ var Person = function(game, x, image, patrol) {
     game.moveCounter.resetMoves();
     person.tint =  0x009933;
     mainPlayer = this;
-    patients --;
+    patients--;
     return true;
   },
 
@@ -57,8 +74,7 @@ var Person = function(game, x, image, patrol) {
       if(game.Healed) return;
       game.Healed = true;
 
-        var j = this.currentTile;
-
+      var j = this.currentTile;
       var p =isoGroup.children[j];
 
 
@@ -86,9 +102,6 @@ var Person = function(game, x, image, patrol) {
          });
 
        tween.chain(tween2);
-
-
-
   },
 
   this.doWalk = function(next) {
@@ -97,14 +110,6 @@ var Person = function(game, x, image, patrol) {
 
     var nextTilePosition = isoGroup.children[next]._isoPosition;
     this.walkingAudio();
-
-    //switch control to a new human instead of working
-
-    // if(isoGroup.children[mainPlayer.currentTile].willHealYou){
-    //     game.state.start('FailScreen');
-    //     return;
-    // }
-
 
     if (isoGroup.children[next].hasAHuman && this.isMainPlayer) {
 
@@ -174,8 +179,6 @@ var Person = function(game, x, image, patrol) {
   },
 
   this.checkCanWalk = function(next){
-
-      //return isoGroup.children[next].isWalkable;// && !isoGroup.children[next].hasAHuman;
       if(this.isMainPlayer){
         if (isoGroup.children[next].isWalkable){
           return true;
@@ -186,7 +189,6 @@ var Person = function(game, x, image, patrol) {
         return true;
       }
       return false;
-
   },
 
   this.goUp = function() {
