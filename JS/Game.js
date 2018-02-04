@@ -21,18 +21,16 @@ Game.Boot.prototype =
     game.physics.startSystem(Phaser.Plugin.Isometric.ISOARCADE);
     game.bgImg = game.add.sprite(0, 0, 'backgroundimg');
     game.bgImg.tint = 0xfdfd96;
-    //game.stage.backgroundColor = "#fdfd96";
-    game.iso.anchor.setTo(0.466, 0.035);
+    //game.iso.anchor.setTo(0.5, 0.06);
 
     game.time.desiredFps = 60;
-
-
+    game.input.tapRate = 500;
   },
   create: function () {
     people = [];
     patients = 0;
-      game.Healed = false;
-      game.Healed2 = false;
+    game.Healed = false;
+    game.Healed2 = false;
 
     this.grid = new Grid(game);
 
@@ -92,18 +90,13 @@ Game.Boot.prototype =
               }
     }
 
-    //   for(var i = 0; i < people.length; i++){
-    //       people[i].pathfind();
-    //   }
-    // }
-
-    if(isoGroup.children[mainPlayer.currentTile].willHealYou){
+    if(isoGroup.children[mainPlayer.index].willHealYou){
         game.failReason = 'doctor';
 
-if(!game.Healed){
+        if(!game.Healed){
 
-    mainPlayer.heal(this);
-}
+            mainPlayer.heal(this);
+        }
 
     }
 
@@ -132,56 +125,56 @@ if(!game.Healed){
       for(var i = 0; i < people.length; i++){
           people[i].pathfind();
       }
-        mainPlayer.movePlayer('u');
+        mainPlayer.movePlayer(Directions.UP);
     });
 
     wasd.s.onDown.add(function () {
       for(var i = 0; i < people.length; i++){
           people[i].pathfind();
       }
-        mainPlayer.movePlayer('d');
+        mainPlayer.movePlayer(Directions.DOWN);
     });
 
     wasd.a.onDown.add(function () {
       for(var i = 0; i < people.length; i++){
           people[i].pathfind();
       }
-        mainPlayer.movePlayer('l');
+        mainPlayer.movePlayer(Directions.LEFT);
     });
 
     wasd.d.onDown.add(function () {
       for(var i = 0; i < people.length; i++){
           people[i].pathfind();
       }
-        mainPlayer.movePlayer('r');
+        mainPlayer.movePlayer(Directions.RIGHT);
     });
 
     wasd.up.onDown.add(function () {
       for(var i = 0; i < people.length; i++){
           people[i].pathfind();
       }
-        mainPlayer.movePlayer('u');
+        mainPlayer.movePlayer(Directions.UP);
     });
 
     wasd.down.onDown.add(function () {
       for(var i = 0; i < people.length; i++){
           people[i].pathfind();
       }
-        mainPlayer.movePlayer('d');
+        mainPlayer.movePlayer(Directions.DOWN);
     });
 
     wasd.left.onDown.add(function () {
       for(var i = 0; i < people.length; i++){
           people[i].pathfind();
       }
-      mainPlayer.movePlayer('l');
+      mainPlayer.movePlayer(Directions.LEFT);
     });
 
     wasd.right.onDown.add(function () {
       for(var i = 0; i < people.length; i++){
           people[i].pathfind();
       }
-      mainPlayer.movePlayer('r');
+      mainPlayer.movePlayer(Directions.RIGHT);
     });
 
     game.input.onTap.add(function () {
@@ -190,29 +183,29 @@ if(!game.Healed){
         for(var index = 0; index < isoGroup.length; index++){
             if (isoGroup.children[index].isoBounds.containsXY(cursorPos.x, cursorPos.y)){
                 if(mainPlayer.checkCanWalk(index)){
-                    if(index == mainPlayer.getUpTileIndex()){
+                    if(index == mainPlayer.upIndex){
                       for(var i = 0; i < people.length; i++){
                           people[i].pathfind();
                       }
-                        mainPlayer.movePlayer('u');
+                        mainPlayer.movePlayer(Directions.UP);
                     }
-                    else if (index == mainPlayer.getDownTileIndex()) {
+                    else if (index == mainPlayer.downIndex){
                       for(var i = 0; i < people.length; i++){
                           people[i].pathfind();
                       }
-                        mainPlayer.movePlayer('d');
+                        mainPlayer.movePlayer(Directions.DOWN);
                     }
-                    else if (index == mainPlayer.getLeftTileIndex()) {
+                    else if (index == mainPlayer.leftIndex){
                       for(var i = 0; i < people.length; i++){
                           people[i].pathfind();
                       }
-                      mainPlayer.movePlayer('l');
+                      mainPlayer.movePlayer(Directions.LEFT);
                     }
-                    else if (index == mainPlayer.getRightTileIndex()) {
+                    else if (index == mainPlayer.rightIndex){
                       for(var i = 0; i < people.length; i++){
                           people[i].pathfind();
                       }
-                      mainPlayer.movePlayer('r');
+                      mainPlayer.movePlayer(Directions.RIGHT);
                     }
                 }
             }

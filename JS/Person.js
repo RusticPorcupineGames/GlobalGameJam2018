@@ -1,80 +1,99 @@
-var Person = function(game, x, image, patrol) {
+const Directions = Object.freeze({
+  UP:     Symbol("up"),
+  DOWN:   Symbol("down"),
+  LEFT:   Symbol("left"),
+  RIGHT:  Symbol("right")
+});
 
-  this.isMainPlayer = false;
-  this.currentTile = x;
-  this.getUpTileIndex = function(){
-    var value = this.currentTile - 1;
-    return value >= 0 && value < 144 ? value : -1;
-  }
-  this.getDownTileIndex = function(){
-    var value = this.currentTile + 1;
-    return value >= 0 && value < 144 ? value : -1;
-  }
-  this.getLeftTileIndex = function(){
-    var value = this.currentTile - 12;
-    return value >= 0 && value < 144 ? value : -1;
-  }
-  this.getRightTileIndex = function(){
-    var value = this.currentTile + 12;
-    return value >= 0 && value < 144 ? value : -1;
+class Person {
+
+  constructor(game, initialIndex, image, patrol, direction = Directions.DOWN) {
+    this._game = game;
+    this._index = initialIndex;
+    this._direction = direction;
+    //this._image = image;
+    this._patrol = patrol;
+    this._isMainPlayer = false;
+
+    this.sprite = game.add.isoSprite(
+      isoGroup.children[this.index]._isoPosition.x,
+      isoGroup.children[this.index]._isoPosition.y,
+      0, image, 0, isoGroup);
+
+    isoGroup.children[this.index].hasAHuman = true; // ########## BAD CODE.
+
+    //this.sprite.anchor.setTo(-0.25, -0.62);
+    this.sprite.anchor.set(-0.3, 0.2);
+    //this.sprite.anchor.setTo(-0.25, -0.5);
+    this.sprite.animations.add('up', [1], 10, true);
+    this.sprite.animations.add('right', [2], 10, true);
+    this.sprite.animations.add('left', [0], 10, true);
+    this.sprite.animations.add('down', [3], 10, true);
+    this.sprite.animations.play('down');
   }
 
-  this.patrol = patrol;
-  this.direction = 'd';
-  this.oldTween;
-  var myTilePosition = isoGroup.children[x]._isoPosition;
-  isoGroup.children[x].hasAHuman = true;
-  var person = game.add.isoSprite(myTilePosition.x, myTilePosition.y, 0, image, 0, isoGroup);
-  person.anchor.setTo(-0.25, 0.4);
-  person.animations.add('up', [1], 10, true);
-  person.animations.add('right', [2], 10, true);
-  person.animations.add('left', [0], 10, true);
-  person.animations.add('down', [3], 10, true);
-  person.animations.play('down');
+  get game(){return this._game;}
 
-  this.update = function() {
+  set index(value){this._index = value;}
+  get index(){return this._index;}
+  get upIndex(){    let value = this.index - 1;  return value >= 0 && value < 144 ? value : -1;}
+  get downIndex(){  let value = this.index + 1;  return value >= 0 && value < 144 ? value : -1;}
+  get leftIndex(){  let value = this.index - 12; return value >= 0 && value < 144 ? value : -1;}
+  get rightIndex(){ let value = this.index + 12; return value >= 0 && value < 144 ? value : -1;}
+
+  set direction(value){this._direction = value;}
+  get direction(){return this._direction;}
+
+  get patrol(){return this._patrol;}
+
+  get isMainPlayer(){return this._isMainPlayer;}
+  set isMainPlayer(value){this._isMainPlayer = value;}
+
+  update() {
       game.iso.topologicalSort(isoGroup);
-  },
 
-  this.walkingAudio = function() {
+      console.log("tile " + isoGroup.children[this.index]._isoPosition.x + " " + isoGroup.children[this.index]._isoPosition.y + " " + isoGroup.children[this.index]._isoPosition.z);
+      console.log("person " + this.sprite._isoPosition.x + " " + this.sprite._isoPosition.y + " " + this.sprite._isoPosition.z);
+  }
+
+  walkingAudio() {
     this.step1 = game.add.audio('step1');
     this.step2 = game.add.audio('step2');
     this.step1.play();
     this.step2.play();
+  }
 
-  },
 
-
-  this.infectAudio = function() {
+  infectAudio() {
     this.music = game.add.audio('infect');
     this.music.play();
-  },
+  }
 
-  this.infect = function(){
-    this.isMainPlayer = true;
+  infect(){
+    this._isMainPlayer = true;
 
     this.infectAudio();
     game.killCounter.update();
     game.moveCounter.resetMoves();
-    person.tint =  0x009933;
+    this.sprite.tint =  0x009933;
     mainPlayer = this;
     patients--;
     return true;
-  },
+  }
 
 
-  this.die = function(p){
-     isoGroup.children[this.currentTile].hasAHuman = false;
-     people.splice(this.currentTile, 1);
-  },
+  die(){
+     isoGroup.children[this.index].hasAHuman = false;
+     people.splice(this.index, 1);
+  }
 
 
-  this.heal = function(callback){
+  heal(callback){
 
       if(game.Healed) return;
       game.Healed = true;
 
-      var j = this.currentTile;
+      var j = this.index;
       var p =isoGroup.children[j];
 
 
@@ -85,7 +104,7 @@ var Person = function(game, x, image, patrol) {
           10,
           Phaser.Easing.Linear.none, false);
 
-      var tween2 = game.add.tween(person);
+      var tween2 = game.add.tween(this.sprite);
       tween2.to({
               isoZ: -150
           },
@@ -102,24 +121,24 @@ var Person = function(game, x, image, patrol) {
          });
 
        tween.chain(tween2);
-  },
+  }
 
-  this.doWalk = function(next) {
+  doWalk(next) {
 
     if(game.Healed) return;
 
     var nextTilePosition = isoGroup.children[next]._isoPosition;
     this.walkingAudio();
 
-    if (isoGroup.children[next].hasAHuman && this.isMainPlayer) {
+    if (isoGroup.children[next].hasAHuman && this._isMainPlayer) {
 
-        isoGroup.children[this.currentTile].hasAHuman = false;
+        isoGroup.children[this.index].hasAHuman = false;
 
       for (var i = 0; i < people.length; i++) {
-        if (people[i].currentTile == next) {
-          var infected = people[i].infect(person);
+        if (people[i]._index == next) {
+          var infected = people[i].infect();
           if(infected){
-              this.die(person);
+              this.die();
           }
           return;
         }
@@ -128,10 +147,10 @@ var Person = function(game, x, image, patrol) {
     }else{
 
 
-        isoGroup.children[this.currentTile].hasAHuman = false;
+        isoGroup.children[this.index].hasAHuman = false;
         isoGroup.children[next].hasAHuman = true;
-        this.currentTile = next;
-        var tween = game.add.tween(person);
+        this.index = next;
+        var tween = game.add.tween(this.sprite);
         tween.to({
                 isoZ: 0,
                 isoX: (nextTilePosition.x),
@@ -149,37 +168,37 @@ var Person = function(game, x, image, patrol) {
         this.oldTween = tween;
         tween.start();
     }
-  },
+  }
 
-  this.goRight = function() {
-    if (this.currentTile < 132) {
-      person.animations.play('right');
+  goRight() {
+    if (this.index < 132) {
+      this.sprite.animations.play('right');
 
-      var next = this.currentTile + 12;
+      var next = this.index + 12;
       if (this.checkCanWalk(next)) {
         this.doWalk(next);
-        this.direction = 'r';
+        this.direction = Directions.RIGHT;
         return true;
       }
     }
     return false;
-  },
+  }
 
-  this.goLeft = function() {
-    if (this.currentTile > 11) {
-      person.animations.play('left');
-      var next = this.currentTile - 12;
+  goLeft() {
+    if (this.index > 11) {
+      this.sprite.animations.play('left');
+      var next = this.index - 12;
       if (this.checkCanWalk(next)) {
         this.doWalk(next);
-        this.direction = 'l';
+        this.direction = Directions.LEFT;
         return true;
       }
     }
     return false;
-  },
+  }
 
-  this.checkCanWalk = function(next){
-      if(this.isMainPlayer){
+  checkCanWalk(next){
+      if(this._isMainPlayer){
         if (isoGroup.children[next].isWalkable){
           return true;
         }
@@ -189,50 +208,50 @@ var Person = function(game, x, image, patrol) {
         return true;
       }
       return false;
-  },
+  }
 
-  this.goUp = function() {
-    if (this.currentTile % 12 != 0) {
-      person.animations.play('up');
-      var next = this.currentTile - 1;
+  goUp() {
+    if (this.index % 12 != 0) {
+      this.sprite.animations.play('up');
+      var next = this.index - 1;
       if (this.checkCanWalk(next)) {
         this.doWalk(next);
-        this.direction = 'u';
+        this.direction = Directions.UP;
         return true;
       }
     }
     return false;
-  },
+  }
 
-  this.goDown = function() {
-    if (this.currentTile % 12 != 11) {
-      person.animations.play('down');
-      var next = this.currentTile + 1;
+  goDown() {
+    if (this.index % 12 != 11) {
+      this.sprite.animations.play('down');
+      var next = this.index + 1;
       if (this.checkCanWalk(next)) {
         this.doWalk(next);
-        this.direction = 'd';
+        this.direction = Directions.DOWN;
         return true;
       }
     }
     return false;
-  },
+  }
 
-  this.movePlayer = function(direction) {
+  movePlayer(direction) {
     switch (direction) {
-      case 'u':
+      case Directions.UP:
         return this.goUp();
-      case 'd':
+      case Directions.DOWN:
         return this.goDown();
-      case 'l':
+      case Directions.LEFT:
         return this.goLeft();
-      case 'r':
+      case Directions.RIGHT:
         return this.goRight();
     }
 
   }
 
-  this.pathfind = function(){
-    if (this.isMainPlayer) return;
+  pathfind(){
+    if (this._isMainPlayer) return;
 
     switch(this.patrol){
       case 'line':
@@ -246,16 +265,16 @@ var Person = function(game, x, image, patrol) {
     }
   }
 
-  this.getOppositeDirection = function(){
+  getOppositeDirection(){
     switch(this.direction){
-      case 'u':
-        return 'd';
-      case 'd':
-        return 'u';
-      case 'l':
-        return 'r';
-      case 'r':
-        return 'l';
+      case Directions.UP:
+        return Directions.DOWN;
+      case Directions.DOWN:
+        return Directions.UP;
+      case Directions.LEFT:
+        return Directions.RIGHT;
+      case Directions.RIGHT:
+        return Directions.LEFT;
     }
   }
 }

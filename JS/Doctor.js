@@ -1,72 +1,64 @@
-var Doctor = function(game,  x, image, patrol) {
-    var something = new Person(game, x, image, patrol);
+class Doctor extends Person{
 
-    var doTint = function (t, setIt) {
-        if(t > -1 && t < isoGroup.children.length &&  isoGroup.children[t].isWalkable){
-            if(setIt){
-                isoGroup.children[t].tint =  0xe06773;
-                isoGroup.children[t].willHealYou = true;
-            } else{
-                isoGroup.children[t].tint = 0xffffff;
-                isoGroup.children[t].willHealYou = false;
-            }
+  constructor(game, initialIndex, image, patrol) {
+    super(game, initialIndex, image, patrol);
+
+    this.colorInFront(true);
+  }
+
+  doTint(t, setIt){
+    if(t > -1 && t < isoGroup.children.length &&  isoGroup.children[t].isWalkable){
+        if(setIt){
+            isoGroup.children[t].tint =  0xe06773;
+            isoGroup.children[t].willHealYou = true;
+        } else{
+            isoGroup.children[t].tint = 0xffffff;
+            isoGroup.children[t].willHealYou = false;
         }
     }
+  }
 
+  colorInFront(setIt) {
+      switch(this.direction){
+          case Directions.DOWN:
+              this.doTint(this.index + 1, setIt);
+              this.doTint(this.index + 13, setIt);
+              this.doTint(this.index - 11, setIt);
+              this.doTint(this.index - 12, setIt);
+              this.doTint(this.index + 12, setIt);
+              break;
+          case Directions.UP:
+              this.doTint(this.index - 1, setIt);
+              this.doTint(this.index - 13, setIt);
+              this.doTint(this.index + 11, setIt);
+              this.doTint(this.index - 12, setIt);
+              this.doTint(this.index + 12, setIt);
+              break;
+          case Directions.LEFT:
+              this.doTint(this.index - 12, setIt);
+              this.doTint(this.index - 13, setIt);
+              this.doTint(this.index - 11, setIt);
+              this.doTint(this.index - 1, setIt);
+              this.doTint(this.index + 1, setIt);
+              break;
+          case Directions.RIGHT:
+              this.doTint(this.index + 12, setIt);
+              this.doTint(this.index + 13, setIt);
+              this.doTint(this.index + 11, setIt);
+              this.doTint(this.index - 1, setIt);
+              this.doTint(this.index + 1, setIt);
+              break;
+      }
+  }
 
-    var colorInFront = function (setIt) {
-        switch(something.direction){
-            case 'd':
-                doTint(something.currentTile + 1, setIt);
-                doTint(something.currentTile + 13, setIt);
-                doTint(something.currentTile - 11, setIt);
-                doTint(something.currentTile - 12, setIt);
-                doTint(something.currentTile + 12, setIt);
-                break;
-            case 'u':
-                doTint(something.currentTile - 1, setIt);
-                doTint(something.currentTile - 13, setIt);
-                doTint(something.currentTile + 11, setIt);
-                doTint(something.currentTile - 12, setIt);
-                doTint(something.currentTile + 12, setIt);
-                break;
-            case 'l':
-                doTint(something.currentTile - 12, setIt);
-                doTint(something.currentTile - 13, setIt);
-                doTint(something.currentTile - 11, setIt);
-                doTint(something.currentTile - 1, setIt);
-                doTint(something.currentTile + 1, setIt);
-                break;
-            case 'r':
-                doTint(something.currentTile + 12, setIt);
-                doTint(something.currentTile + 13, setIt);
-                doTint(something.currentTile + 11, setIt);
-                doTint(something.currentTile - 1, setIt);
-                doTint(something.currentTile + 1, setIt);
-                break;
+  infect(){
+    return false;
+  }
 
-        }
-
-    }
-
-    colorInFront(true);
-
-    var move = something.movePlayer;
-    something.movePlayer = function (direction) {
-
-        colorInFront(false);
-
-        var r = move.call(this, direction);
-
-        colorInFront(true);
-
-        return r;
-
-    }
-
-    something.infect = function () {
-        return false;
-    };
-
-    return something;
+  movePlayer(direction){
+    this.colorInFront(false); // CLEAN THIS UP!
+    var response = super.movePlayer(direction);
+    this.colorInFront(true);
+    return response;
+  }
 }

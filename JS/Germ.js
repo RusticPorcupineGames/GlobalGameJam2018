@@ -1,18 +1,18 @@
-var Germ = function(game,  x, image, patrol) {
-    var something = new Person(game,  x, image, patrol);
-    var apple = something.die;
-    something.die = function (p) {
-        apple.call(this, p);
-        var t = game.add.tween(p).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None);
-        t.start();
+class Germ extends Person {
+    constructor(game, initialIndex, image, patrol){
+      super(game, initialIndex, image, patrol);
+      this.isGerm = true; // ####### bad code
     }
-    something.isGerm = true;
 
-    var orange = something.movePlayer;
-    something.movePlayer = function (direction) {
-        if (this.isMainPlayer)
-          game.moveCounter.useGermMove();
-        return orange.call(this, direction);
-    };
-    return something;
+    die(){
+      super.die();
+      var t = this.game.add.tween(this.sprite).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None);
+      t.start();
+    }
+
+    movePlayer(direction){
+      if (this.isMainPlayer)
+        this.game.moveCounter.useGermMove();
+      return super.movePlayer(direction);
+    }
 }
