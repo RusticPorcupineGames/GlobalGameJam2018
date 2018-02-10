@@ -1,3 +1,4 @@
+
 const Directions = Object.freeze({
   UP:     Symbol("up"),
   DOWN:   Symbol("down"),
@@ -11,7 +12,6 @@ class Person {
     this._game = game;
     this._index = initialIndex;
     this._direction = direction;
-    //this._image = image;
     this._patrol = patrol;
     this._isMainPlayer = false;
 
@@ -20,25 +20,25 @@ class Person {
       isoGroup.children[this.index]._isoPosition.y,
       0, image, 0, isoGroup);
 
-    isoGroup.children[this.index].hasAHuman = true; // ########## BAD CODE.
-
-    //this.sprite.anchor.setTo(-0.25, -0.62);
     this.sprite.anchor.set(-0.3, 0.2);
-    //this.sprite.anchor.setTo(-0.25, -0.5);
     this.sprite.animations.add('up', [1], 10, true);
     this.sprite.animations.add('right', [2], 10, true);
     this.sprite.animations.add('left', [0], 10, true);
     this.sprite.animations.add('down', [3], 10, true);
     this.sprite.animations.play('down');
+
+    isoGroup.children[this.index].hasAHuman = true; // ########## BAD CODE.
   }
+
 
   get game(){return this._game;}
 
   set index(value){this._index = value;}
   get index(){return this._index;}
-  get upIndex(){    let value = this.index - 1;  return value >= 0 && value < 144 ? value : -1;}
-  get downIndex(){  let value = this.index + 1;  return value >= 0 && value < 144 ? value : -1;}
-  get leftIndex(){  let value = this.index - 12; return value >= 0 && value < 144 ? value : -1;}
+
+  get upIndex()   { let value = this.index - 1;  return value >= 0 && value < 144 ? value : -1;}
+  get downIndex() { let value = this.index + 1;  return value >= 0 && value < 144 ? value : -1;}
+  get leftIndex() { let value = this.index - 12; return value >= 0 && value < 144 ? value : -1;}
   get rightIndex(){ let value = this.index + 12; return value >= 0 && value < 144 ? value : -1;}
 
   set direction(value){this._direction = value;}
@@ -49,30 +49,19 @@ class Person {
   get isMainPlayer(){return this._isMainPlayer;}
   set isMainPlayer(value){this._isMainPlayer = value;}
 
-  update() {
-      game.iso.topologicalSort(isoGroup);
 
-      console.log("tile " + isoGroup.children[this.index]._isoPosition.x + " " + isoGroup.children[this.index]._isoPosition.y + " " + isoGroup.children[this.index]._isoPosition.z);
-      console.log("person " + this.sprite._isoPosition.x + " " + this.sprite._isoPosition.y + " " + this.sprite._isoPosition.z);
+  update() {
+    game.iso.topologicalSort(isoGroup);
   }
 
   walkingAudio() {
-    this.step1 = game.add.audio('step1');
-    this.step2 = game.add.audio('step2');
-    this.step1.play();
-    this.step2.play();
-  }
-
-
-  infectAudio() {
-    this.music = game.add.audio('infect');
-    this.music.play();
+    game.audioAssets.step1.play();
+    game.audioAssets.step2.play();
   }
 
   infect(){
-    this._isMainPlayer = true;
-
-    this.infectAudio();
+    this.isMainPlayer = true;
+    game.audioAssets.infect.play();
     game.killCounter.update();
     game.moveCounter.resetMoves();
     this.sprite.tint =  0x009933;
@@ -81,46 +70,30 @@ class Person {
     return true;
   }
 
-
   die(){
-     isoGroup.children[this.index].hasAHuman = false;
-     people.splice(this.index, 1);
+    isoGroup.children[this.index].hasAHuman = false;
+    people.splice(this.index, 1);
   }
-
 
   heal(callback){
 
-      if(game.Healed) return;
-      game.Healed = true;
+    if(game.Healed) return;
+    game.Healed = true;
 
-      var j = this.index;
-      var p =isoGroup.children[j];
+    var tween = game.add.tween(isoGroup.children[this.index]);
+    tween.to({ alpha: 0 }, 10, Phaser.Easing.Linear.none, false);
 
+    var tween2 = game.add.tween(this.sprite);
+    tween2.to({ isoZ: -150 }, 2000, Phaser.Easing.Linear.none, false);
 
-      var tween = game.add.tween(p);
-      tween.to({
-              alpha: 0
-          },
-          10,
-          Phaser.Easing.Linear.none, false);
+    tween.start();
+    tween2.start();
 
-      var tween2 = game.add.tween(this.sprite);
-      tween2.to({
-              isoZ: -150
-          },
-          2000,
-          Phaser.Easing.Linear.none, false);
+    tween2.onComplete.add( function(){
+       game.Healed2 = true;
+    });
 
-     tween.start();
-     tween2.start();
-
-     tween2.onComplete.add(
-         function(){
-             game.Healed2 = true;
-
-         });
-
-       tween.chain(tween2);
+    tween.chain(tween2);
   }
 
   doWalk(next) {
@@ -131,36 +104,28 @@ class Person {
     this.walkingAudio();
 
     if (isoGroup.children[next].hasAHuman && this._isMainPlayer) {
-
         isoGroup.children[this.index].hasAHuman = false;
-
-      for (var i = 0; i < people.length; i++) {
-        if (people[i]._index == next) {
-          var infected = people[i].infect();
-          if(infected){
-              this.die();
-          }
-          return;
+        for (var i = 0; i < people.length; i++) {
+            if (people[i]._index == next) {
+                let infected = people[i].infect();
+                if(infected){
+                    this.die();
+                }
+                return;
+            }
         }
-      }
-
-    }else{
-
-
+    } else {
         isoGroup.children[this.index].hasAHuman = false;
         isoGroup.children[next].hasAHuman = true;
         this.index = next;
+
         var tween = game.add.tween(this.sprite);
-        tween.to({
-                isoZ: 0,
-                isoX: (nextTilePosition.x),
-                isoY: (nextTilePosition.y)
-            },
+        tween.to(
+            { isoZ: 0, isoX: (nextTilePosition.x), isoY: (nextTilePosition.y) },
             200,
-            Phaser.Easing.Linear.none, false).to({
-                isoZ: 0
-            },
-            200, Phaser.Easing.Linear.none, false);
+            Phaser.Easing.Linear.none,
+            false
+        ).to({ isoZ: 0 }, 200, Phaser.Easing.Linear.none, false);
 
         if (this.oldTween != undefined && this.oldTween.isRunning) {
             this.oldTween.chain(tween);
